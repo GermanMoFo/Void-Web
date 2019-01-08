@@ -2,8 +2,12 @@
 import queue
 import firebase_admin
 from firebase_admin import credentials, firestore
+import os
 
-cred = credentials.Certificate(r'C:\Users\thepe_000\Desktop\PP5\Server\Void-Web\Enviorment\Active\Non-Public\void-scribe-firebase-adminsdk-xtf9j-3b3a1435e9.json')
+  is_dir, this_filename = os.path.split(__file__)
+cred_path = this_dir + r"\service_account\void-scribe-firebase-adminsdk-xtf9j-c41e46ae8a.json"
+
+cred = credentials.Certificate(cred_path)
 firebase_admin.initialize_app(cred)
 
 DataBaseReference = firestore.client()
