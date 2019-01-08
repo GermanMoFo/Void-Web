@@ -26,7 +26,7 @@ def FireStoreMonitorEntryPoint():
     #Establish database connection
     import firebase_admin
     from firebase_admin import credentials, firestore
-    cred = credentials.Certificate(r'C:\Users\Joshua\Desktop\PP5\Void-Scribe\ServerSide\Enviorment\Active\Non-Public\void-scribe-firebase-adminsdk-xtf9j-a419db8670.json')
+    cred = credentials.Certificate(r'C:\Users\thepe_000\Desktop\PP5\Server\Void-Web\Enviorment\Active\Non-Public\void-scribe-firebase-adminsdk-xtf9j-3b3a1435e9.json')
     firebase_admin.initialize_app(cred, name="Monitor")
     db = firestore.client()
     requests_ref = db.collection(u'Algorithm_Requests')
