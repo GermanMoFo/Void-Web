@@ -1,8 +1,7 @@
 #This File Will Handle Managment Of Algorithm Processes
 import firebase_admin
 from Void_Algorithm_Processor import RunAlgorithmRequest
-from Void_FireStore import EnqueueDocument, DataBaseReference
-
+from Void_FireStore import UploadDocument, DataBaseReference
 
 __StorageCollectionMap__ = {"Name":DataBaseReference.collection("Generated_Names"), "Sentence":DataBaseReference.collection("Generated_Sentences"), "None Specified":DataBaseReference.collection("Bad_Requests")}
 
@@ -14,11 +13,11 @@ def ProcessRequest(Data):
         request_doc = {}
         request_doc["Request_Source"] = Data["Request_Source"]
         request_doc["Req_Type"] = Data["Req_Type"]
-        request_doc["Req_Arguments"] = Data["Request_Arguments"]
+        request_doc["Req_Arguments"] = Data["Req_Arguments"]
         request_doc["User_ID"] = Data["User_ID"]
         request_doc["Processed"] = True
         #Enqueue for Upload
-        EnqueueDocument(DataBaseReference.collection("Algorithm_Requests"), request_doc)
+        UploadDocument(DataBaseReference.collection("Algorithm_Requests"), request_doc)
 
     #Run Request To Algorithm
     processed_data = RunAlgorithmRequest(Data)
@@ -36,14 +35,14 @@ def ProcessRequest(Data):
     if "Hash_Key" in Data.keys():
         proc_req_doc["Hash_Key"] = Data["Hash_Key"]
         storage_doc["Hash_Key"] = Data["Hash_Key"]
-    
+
     #Build Collection References
     proc_doc_colec_ref = DataBaseReference.collection("Completed_Requests")
     storage_doc_colec_ref = __StorageCollectionMap__[Data["Req_Type"]]
 
     #Enqueue For Upload
-    EnqueueDocument(proc_doc_colec_ref, proc_req_doc)
-    EnqueueDocument(storage_doc_colec_ref, storage_doc)
+    UploadDocument(proc_doc_colec_ref, proc_req_doc)
+    UploadDocument(storage_doc_colec_ref, storage_doc)
 
     #Return Algorithm Output
     return processed_data

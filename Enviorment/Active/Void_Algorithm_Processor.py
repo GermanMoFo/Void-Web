@@ -17,5 +17,6 @@ def __ProcessSentenceRequest__(Data):
 
 _AlgorithmRequestMap_ = {"Name":__ProcessNameRequest__, "Sentence":__ProcessSentenceRequest__}
 
+
 def RunAlgorithmRequest(Data):
     return _AlgorithmRequestMap_[Data["Req_Type"]](Data)
