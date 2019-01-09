@@ -2,7 +2,7 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
 import os
-from Void_Logger import Void_Log_Debug, Void_Log_Info
+from Void_Logger import Void_Log_Info
 
 this_dir, this_filename = os.path.split(__file__)
 cred_path = this_dir + r"/service_account/void-scribe-firebase-adminsdk-xtf9j-c41e46ae8a.json"

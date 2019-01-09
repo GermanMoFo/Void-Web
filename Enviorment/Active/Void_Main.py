@@ -1,8 +1,7 @@
 #This File Will Handle Managment Of Algorithm Processes
-import firebase_admin
 from Void_Algorithm_Processor import RunAlgorithmRequest
 from Void_FireStore import UploadDocument, DataBaseReference
-from Void_Logger import Void_Log_Debug, Void_Log_Info
+from Void_Logger import Void_Log_Info
 
 __StorageCollectionMap__ = {"Name":DataBaseReference.collection("Generated_Names"), "Sentence":DataBaseReference.collection("Generated_Sentences"), "None Specified":DataBaseReference.collection("Bad_Requests")}
 
