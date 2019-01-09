@@ -1,9 +1,8 @@
-from flask import Flask, render_template, request, Response, jsonify
+from flask import Flask, render_template, request, Response
 import json
-import requests
 from void_scribe import NameGenerator, Stories
 import Void_Main
-from Void_Logger import Void_Log_Info, Void_Log_Debug, Void_Log_Warning
+from Void_Logger import Void_Log_Info, Void_Log_Debug
 
 app = Flask(__name__)
 
@@ -77,7 +76,61 @@ def VoidScribeRequest():
     return resp
 
 
+@app.route("/GenerateNames", methods = ['POST'])
+def RetreiveNames():
+    data = request.get_json()
 
+    #Validate
+    if "Name_Type" not in data.keys():
+        Void_Log_Debug("Name request did not include required Name_Type field.")
+        return Response(json.dumps({"Message":"Missing Required Argument For Name Request: Name_Type"}), 400, mimetype='application/json')
+    if data["Name_Type"] not in list(NameGenerator.getNameTypes()):
+        Void_Log_Debug("Request's Name_Type field was an unsupported value.")
+        return Response(json.dumps({"Message":"Argument: Name_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
+    if "Amount" not in data.keys():
+        Void_Log_Debug("Request did not include Amount field, defaulting to: 1")
+        data["Amount"] = 1
+    if "Request_Source" not in data.keys():
+        Void_Log_Debug("Received a request with an unspecified source. Marking as: Web_API.")
+        data["Request_Source"] = "Web_API"
 
+    #Process Request
+    data["Req_Type"] = "Name"
+    processed_data = Void_Main.ProcessRequest(data)
 
+    #Package Response
+    Void_Log_Info(f"Sucessfully processed request sending response to {request.remote_addr}.")
+    resp = Response(json.dumps({"Data":processed_data}), 200, mimetype='application/json')
+
+    #Return Response
+    return resp
+
+@app.route("/GenerateSentences", methods = ['POST'])
+def RetreiveSentences():
+    data = request.get_json()
+
+    #Validate
+    if "Sentence_Type" not in data.keys():
+        Void_Log_Debug("Sentence request did not include required Sentence_Type field.")
+        return Response(json.dumps({"Message":"Missing Required Argument For Sentence Request: Sentence_Type"}), 400, mimetype='application/json')
+    if data["Sentence_Type"] not in Stories.data.keys():
+        Void_Log_Debug("Request's Sentence_Type field was an unsupported value.")
+        return Response(json.dumps({"Message":"Argument: Sentence_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
+    if "Amount" not in data.keys():
+        Void_Log_Debug("Request did not include Amount field, defaulting to: 1")
+        data["Amount"] = 1
+    if "Request_Source" not in data.keys():
+        Void_Log_Debug("Received a request with an unspecified source. Marking as: Web_API.")
+        data["Request_Source"] = "Web_API"
+
+    #Process Request
+    data["Req_Type"] = "Sentence"
+    processed_data = Void_Main.ProcessRequest(data)
+
+    #Package Response
+    Void_Log_Info(f"Sucessfully processed request sending response to {request.remote_addr}.")
+    resp = Response(json.dumps({"Data":processed_data}), 200, mimetype='application/json')
+
+    #Return Response
+    return resp
 
