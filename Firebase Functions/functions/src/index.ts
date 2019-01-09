@@ -58,16 +58,6 @@ exports.timestampRequests = functions.firestore
 
     });
 
-exports.tagRequestsForProcessing = functions.firestore
-    .document('Algorithm_Requests/{req_id}')
-    .onCreate((event, context) => {
-
-      const data = event.data()
-
-      if(data.Processed === true) return null
-      else return event.ref.update({"Processed":false})
-      
-    });
 
 exports.tagRequestsForProcessing = functions.firestore
     .document('Algorithm_Requests/{req_id}')
@@ -75,6 +65,11 @@ exports.tagRequestsForProcessing = functions.firestore
 
       const data = event.data()
 
+      if(data.Processed !== null)
+      {
+        if(data.Processed === true) return 1
+      }
+      else data.Processed = true
 
       const bad_collection = admin.firestore().collection('Bad_Requests')
       //Validate Primary Fields
@@ -147,6 +142,7 @@ exports.tagRequestsForProcessing = functions.firestore
       processed_data["Req_Type"] = data.Req_Type
       processed_data["Req_Arguments"] = data.Req_Arguments
       processed_data["User_ID"] = data.User_ID
+      processed_data["Processed"] = data.Processed
       
       if (data.Hash_Key !== null) processed_data["Hash_Key"] = data.Hash_Key
       if (data.Request_Source !== null) processed_data["Hash_Key"] = data.Hash_Key
@@ -155,8 +151,9 @@ exports.tagRequestsForProcessing = functions.firestore
       //const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
       //https.request
       //https.post("machinelearningmadlads.pythonanywhere.com/VoidScribeRequest", JSON.stringify(processed_data), {headers: headers})
-      let json_data = JSON.stringify(processed_data)
-      let url = "https://machinelearningmadlads.pythonanywhere.com/VoidScribeRequest"
+      const json_data = JSON.stringify(processed_data)
+      //const url = "http://webapp-534272.pythonanywhere.com/VoidScribeRequest"
+      const url = "http://www.voidscribe.com/VoidScribeRequest"
       req.post({
         headers: {
           'content-type': 'application/json'
