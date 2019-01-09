@@ -2,6 +2,7 @@
 import firebase_admin
 from Void_Algorithm_Processor import RunAlgorithmRequest
 from Void_FireStore import UploadDocument, DataBaseReference
+from Void_Logger import Void_Log_Debug, Void_Log_Info
 
 __StorageCollectionMap__ = {"Name":DataBaseReference.collection("Generated_Names"), "Sentence":DataBaseReference.collection("Generated_Sentences"), "None Specified":DataBaseReference.collection("Bad_Requests")}
 
@@ -9,6 +10,7 @@ def ProcessRequest(Data):
 
     #Interpret Source (Document Upload or HTTP)
     if Data["Request_Source"] == "Unity" or Data["Request_Source"] == "Web_API":
+        Void_Log_Info("Received request from a source outside firebase, fabricating request document.")
         #Create A Request Document
         request_doc = {}
         request_doc["Request_Source"] = Data["Request_Source"]

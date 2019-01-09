@@ -2,6 +2,7 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
 import os
+from Void_Logger import Void_Log_Debug, Void_Log_Info
 
 this_dir, this_filename = os.path.split(__file__)
 cred_path = this_dir + r"/service_account/void-scribe-firebase-adminsdk-xtf9j-c41e46ae8a.json"
@@ -19,6 +20,7 @@ def UploadDocument(collection, document_content, document_name=None):
     #document_name - An optional string used to name the uploaded document
     #If no document name is provided push() is used to generate a unique ID
     
-    
     doc_ref = collection.document(document_name)
     doc_ref.set(document_data=document_content)
+    
+    Void_Log_Info(f"Uploaded Document: {doc_ref.id} to Collection: {collection.id}")
