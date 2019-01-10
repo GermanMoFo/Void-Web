@@ -1,45 +1,41 @@
-import requests
+import requests as req
 import time
 
-good_data_1 = {"Req_Type":"Name", "Req_Arguments":{"Amount":5, "Name_Type":"americanCities"}, "User_ID":"Josh_Testing_Script"}
-good_data_2 = {"Req_Type":"Sentence", "Req_Arguments":{"Amount":5, "Sentence_Type":"myth"}, "User_ID":"Josh_Testing_Script"}
-bad_data_1 = {"Reqqq_Type":"Name", "Req_Arguments":{"Amount":5, "Name_Type":"pokemon"}, "User_ID":"Josh_Testing_Script"}
-bad_data_2 = {"Req_Type":"Name", "Req_Arguments":{"Amount":5, "Name_Type":"pokeman"}, "User_ID":"Josh_Testing_Script"}
-bad_data_3 = {"Req_Type":"Sentence", "Req_Arguments":{"Amount":5, "Sentencee_Type":"myth"}, "User_ID":"Josh_Testing_Script"}
+base_url = r"http://www.voidscribe.com"
+#base_url = "http://127.0.0.1:5000"
+#base_url = r"http://webapp-534272.pythonanywhere.com"
 
-def TestRequest(data, name):
-    req = requests.post(r"http://127.0.0.1:5000/VoidScribeRequest", json=data)
+good_data_1_req = {"Req_Type":"Name", "Req_Arguments":{"Amount":5, "Name_Type":"americanCities"}, "User_ID":"Josh_Testing_Script"}
+good_data_2_req = {"Req_Type":"Sentence", "Req_Arguments":{"Amount":5, "Sentence_Type":"myth"}, "User_ID":"Josh_Testing_Script"}
+bad_data_1_req = {"Reqqq_Type":"Name", "Req_Arguments":{"Amount":5, "Name_Type":"pokemon"}, "User_ID":"Josh_Testing_Script"}
+bad_data_2_req = {"Req_Type":"Name", "Req_Arguments":{"Amount":5, "Name_Type":"pokeman"}, "User_ID":"Josh_Testing_Script"}
+bad_data_3_req = {"Req_Type":"Sentence", "Req_Arguments":{"Amount":5, "Sentencee_Type":"myth"}, "User_ID":"Josh_Testing_Script"}
+good_data_name = {"Name_Type":"weaponsOld", "Amount":120, "User_ID":"Josh_Testing_Script"}
+bad_data_name = {"Name_Type":"weaponsFat", "Amount":27, "User_ID":"Josh_Testing_Script"}
+good_data_sentence = {"Sentence_Type":"quest", "User_ID":"Josh_Testing_Script"}
+bad_data_sentence = {"Sentence_Type":"questable", "Amount":2, "User_ID":"Josh_Testing_Script"}
 
-    print("Test " + name + " Status: " + str(req.status_code))
-    print(req.json())
-    if req.status_code == 200:
-        return (200, req.json()["Doc_ID"])
-    else:
-        return (400, )
+def TestRequest(data):
+    endpoint = base_url + "/" + data[2]
+    print(endpoint)
+    resp = req.post(url=endpoint, json=data[0])
 
-def TestRetreive(Doc_ID):
-    start = time.time()
-    resp = requests.post(r"http://127.0.0.1:5000/VoidScribeRetreive", json={"Doc_ID":Doc_ID})
-
-    while (resp.json()["Data"]["completed"] == False):
-        time.sleep(.5)
-        resp = requests.post(r"http://127.0.0.1:5000/VoidScribeRetreive", json={"Doc_ID":Doc_ID})
-
-    print(f"Successfully Retreived After: {time.time() - start}")
-    print(resp.json())
-
+    print("{} {} Successfully returned with code {}. Data Returned: {}".format(data[2], data[1], resp.status_code, str(resp.content)))
+    
 Tests = []
 
-Tests.append((good_data_1, "White 1"))
-Tests.append((good_data_2, "White 2"))
-Tests.append((bad_data_1, "Black 1"))
-Tests.append((bad_data_2, "Black 2"))
-Tests.append((bad_data_3, "Black 3"))
+Tests.append((good_data_1_req, "White Test 1", "VoidScribeRequest"))
+Tests.append((good_data_2_req, "White Test 2", "VoidScribeRequest"))
+Tests.append((bad_data_1_req, "Black Test 1", "VoidScribeRequest"))
+Tests.append((bad_data_2_req, "Black Test 2", "VoidScribeRequest"))
+Tests.append((bad_data_3_req, "Black Test 3", "VoidScribeRequest"))
+Tests.append((good_data_name, "White Test", "RetreiveNames"))
+Tests.append((bad_data_name, "Black Test", "RetreiveNames"))
+Tests.append((good_data_sentence, "White Test", "RetreiveSentences"))
+Tests.append((bad_data_sentence, "Black Test", "RetreiveSentences"))
 
 for test in Tests:
-    resp = TestRequest(test[0], test[1])
-    if resp[0] == 200:
-        TestRetreive(resp[1])
+    TestRequest(test)
 
 
     

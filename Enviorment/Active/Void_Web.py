@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, Response
 import json
-from void_scribe import NameGenerator, Stories
+from void_scribe import NameGenerator
+from void_scribe.data import Stories
 import Void_Main
 from Void_Logger import Void_Log_Info, Void_Log_Debug
 
@@ -96,6 +97,8 @@ def RetreiveNames():
 
     #Process Request
     data["Req_Type"] = "Name"
+    data["Req_Arguments"] = {"Name_Type":data["Name_Type"], "Amount":data["Amount"]}
+
     processed_data = Void_Main.ProcessRequest(data)
 
     #Package Response
@@ -125,6 +128,9 @@ def RetreiveSentences():
 
     #Process Request
     data["Req_Type"] = "Sentence"
+    data["Req_Arguments"] = {"Sentence_Type":data["Sentence_Type"], "Amount":data["Amount"]}
+
+
     processed_data = Void_Main.ProcessRequest(data)
 
     #Package Response

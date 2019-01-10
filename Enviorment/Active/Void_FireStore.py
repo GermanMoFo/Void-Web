@@ -5,8 +5,8 @@ import os
 from Void_Logger import Void_Log_Info
 
 this_dir, this_filename = os.path.split(__file__)
-cred_path = this_dir + r"/service_account/void-scribe-firebase-adminsdk-xtf9j-c41e46ae8a.json"
-#cred_path = this_dir + r"\Non-Public\void-scribe-firebase-adminsdk-xtf9j-3b3a1435e9.json"
+#cred_path = this_dir + r"/service_account/void-scribe-firebase-adminsdk-xtf9j-c41e46ae8a.json"
+cred_path = this_dir + r"\Non-Public\void-scribe-firebase-adminsdk-xtf9j-3b3a1435e9.json"
 
 cred = credentials.Certificate(cred_path)
 firebase_admin.initialize_app(cred)
