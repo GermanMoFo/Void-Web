@@ -2,3 +2,5 @@
 /Enviorment/Active/__pycache__
 /.vscode
 /Enviorment/Stable/Stable Build 1/Non-Public
+/Enviorment/Active/*.log
+/Void_Web.log

@@ -1,3 +1,0 @@
-This Milestone Build Will Likely Be Quickly Overturned
-The Intent Is Too Merge The Server Into Void Web and will
-likely involve heavily cutting code and refactoring
