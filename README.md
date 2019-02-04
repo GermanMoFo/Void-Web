@@ -7,6 +7,4 @@ Void Scribe - A Python package of the Void Scribe Algorithm https://github.com/G
 
 Void Web - A Python web application and Firebase cloud functions designed to create interfaces to the API from the web. https://github.com/GermanMoFo/Void-Web
 
-Void Scribe Unity - A Unity implementation of the Void Scribe Web API, desgined for use in games. https://github.com/GermanMoFo/Void-Scribe-Unity
-
 Void Scribe React - An iOS and Android implementation of the Void Scribe API, desgined to showcase the API's features. https://github.com/tonyfra/Frontend-VoidScribe
