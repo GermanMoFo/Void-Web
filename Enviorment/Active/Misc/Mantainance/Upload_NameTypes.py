@@ -2,7 +2,7 @@ import queue
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-cred = credentials.Certificate(r'C:\Users\thepe_000\Desktop\PP5\Void Scribe\Server Side\Active Work\void-scribe-firebase-adminsdk-xtf9j-a419db8670.json')
+cred = credentials.Certificate(r'C:\Users\thepe_000\Desktop\PP5\Void-Web\Enviorment\Active\Non-Public\void-scribe-firebase-adminsdk-xtf9j-3b3a1435e9.json')
 firebase_admin.initialize_app(cred)
 
 DataBaseReference = firestore.client()
@@ -19,29 +19,35 @@ def _UploadDocument_(collection, document_content, document_name=None):
     doc_ref = collection.document(document_name)
     doc_ref.set(document_data=document_content)
 
-import NameGenerator
 import re
+import os
+import void_scribe.NamesDictionary
+import pickle
 
-name_types = NameGenerator.getNameTypes()
-name_types = list(name_types)
+source_directory = "C:/Users/thepe_000/Desktop/PP5/VoidScribe/void_scribe/data/Names/"
+dest_directory = "C:/Users/thepe_000/Desktop/PP5/VoidScribe/void_scribe/data/MarkovDictionaries/"
+
+nd = void_scribe.NamesDictionary.NamesDictionary()
 
 list_obj = []
-for name_type in name_types:
+for namesDataFile in nd.__index__.keys():
+    namesData = pickle.load(open(nd.__index__[namesDataFile], "rb" ))
     dict_obj = {}
-    dict_obj["Key"] = name_type
-
-    temp = list(name_type)
-    temp[0] = temp[0].upper()
-    name_type = ''.join(temp)
-    
-    split = re.findall('[A-Z][^A-Z]*', name_type)
+    dict_obj["Key"] = namesDataFile
 
     display = ""
-    for word in split:
-        display += word
-        display += " "
+    for i, char in enumerate(namesDataFile):
+        if i == 0:
+            display += char.upper()
+        elif char.istitle():
+            display += ' '
+            display += char
+        else:
+            display += char
 
     dict_obj["Display"] = display
+    dict_obj["Tags"] = namesData['Tags']
+    dict_obj['Category'] = namesData['Category']
 
     list_obj.append(dict_obj)
 

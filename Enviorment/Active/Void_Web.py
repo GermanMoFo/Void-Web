@@ -11,6 +11,22 @@ app = Flask(__name__)
 def crossdomain():
     return render_template('crossdomain.xml')
 
+@app.route("")
+def home():
+    return render_template('home.html')
+
+@app.route("/Usage")
+def usage():
+    return render_template('usage.html')
+
+@app.route("/NameTypes")
+def nametypes():
+    return render_template('NameTypes.html')
+
+@app.route("/SentenceTypes")
+def sentencetypes():
+    return render_template('SentenceTypes.html')
+
 @app.route("/VoidScribeRequest", methods = ['POST'])
 def VoidScribeRequest():
     data = request.get_json()
@@ -82,6 +98,9 @@ def RetreiveNames():
     data = request.get_json()
 
     #Validate
+    if "User_ID" not in data.keys():
+        Void_Log_Debug("Request did not include required User_ID field.")
+        return Response(json.dumps({"Message":"Missing Required Argument: User_ID"}), 400, mimetype='application/json')
     if "Name_Type" not in data.keys():
         Void_Log_Debug("Name request did not include required Name_Type field.")
         return Response(json.dumps({"Message":"Missing Required Argument For Name Request: Name_Type"}), 400, mimetype='application/json')
@@ -113,6 +132,9 @@ def RetreiveSentences():
     data = request.get_json()
 
     #Validate
+    if "User_ID" not in data.keys():
+        Void_Log_Debug("Request did not include required User_ID field.")
+        return Response(json.dumps({"Message":"Missing Required Argument: User_ID"}), 400, mimetype='application/json')
     if "Sentence_Type" not in data.keys():
         Void_Log_Debug("Sentence request did not include required Sentence_Type field.")
         return Response(json.dumps({"Message":"Missing Required Argument For Sentence Request: Sentence_Type"}), 400, mimetype='application/json')
