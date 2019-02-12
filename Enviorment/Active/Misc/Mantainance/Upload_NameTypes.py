@@ -51,6 +51,6 @@ for namesDataFile in nd.__index__.keys():
 
     list_obj.append(dict_obj)
 
-data = {"Name_Types":list_obj}
+data = {"types":list_obj}
 DataBaseReference.collection("Algorithm_Information").document("Name_Types").set(data)
 
