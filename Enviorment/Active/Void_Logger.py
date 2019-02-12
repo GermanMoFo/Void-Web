@@ -32,4 +32,3 @@ def __Format_Message__(message):
 def __Log__(message, logger):
     log = __Format_Message__(message)
     logger(log)
-

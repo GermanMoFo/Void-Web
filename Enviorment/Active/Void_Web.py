@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, Response
 import json
-from void_scribe import NameGenerator
-from void_scribe.data import Stories
+import void_scribe
 import Void_Main
 from Void_Logger import Void_Log_Info, Void_Log_Debug
 
@@ -11,7 +10,7 @@ app = Flask(__name__)
 def crossdomain():
     return render_template('crossdomain.xml')
 
-@app.route("")
+@app.route("/")
 def home():
     return render_template('home.html')
 
@@ -53,7 +52,7 @@ def VoidScribeRequest():
         if "Name_Type" not in data["Req_Arguments"].keys():
             Void_Log_Debug("Name request did not include required Name_Type field.")
             return Response(json.dumps({"Message":"Missing Required Argument For Name Request: Name_Type"}), 400, mimetype='application/json')
-        if data["Req_Arguments"]["Name_Type"] not in list(NameGenerator.getNameTypes()):
+        if data["Req_Arguments"]["Name_Type"] not in list(NameGenerator.validNameTypes()):
             Void_Log_Debug("Request's Name_Type field was an unsupported value.")
             return Response(json.dumps({"Message":"Argument: Name_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
         if "Amount" not in data["Req_Arguments"].keys():
@@ -61,6 +60,7 @@ def VoidScribeRequest():
             data["Req_Arguments"]["Amount"] = 1
 
     elif data["Req_Type"] == "Sentence":
+        return Response(json.dumps({"Message":"Sentence generation is temporarily unavailable is will be back and stronger in about a week."}), 200, mimetype='application/json')
         if "Sentence_Type" not in data["Req_Arguments"].keys():
             Void_Log_Debug("Sentence request did not include required Sentence_Type field.")
             return Response(json.dumps({"Message":"Missing Required Argument For Sentence Request: Sentence_Type"}), 400, mimetype='application/json')
@@ -84,7 +84,7 @@ def VoidScribeRequest():
 
     #Process Data
     processed_data = Void_Main.ProcessRequest(alg_data)
-    
+
     #Package Data For Response
     Void_Log_Info(f"Sucessfully processed request sending response to {request.remote_addr}.")
     resp = Response(json.dumps({"Data":processed_data}), 200, mimetype='application/json')
@@ -104,7 +104,7 @@ def RetreiveNames():
     if "Name_Type" not in data.keys():
         Void_Log_Debug("Name request did not include required Name_Type field.")
         return Response(json.dumps({"Message":"Missing Required Argument For Name Request: Name_Type"}), 400, mimetype='application/json')
-    if data["Name_Type"] not in list(NameGenerator.getNameTypes()):
+    if data["Name_Type"] not in list(NameGenerator.validNameTypes()):
         Void_Log_Debug("Request's Name_Type field was an unsupported value.")
         return Response(json.dumps({"Message":"Argument: Name_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
     if "Amount" not in data.keys():
@@ -130,7 +130,7 @@ def RetreiveNames():
 @app.route("/GenerateSentences", methods = ['POST'])
 def RetreiveSentences():
     data = request.get_json()
-
+    return Response(json.dumps({"Message":"Sentence generation is temporarily unavailable is will be back and stronger in about a week."}), 200, mimetype='application/json')
     #Validate
     if "User_ID" not in data.keys():
         Void_Log_Debug("Request did not include required User_ID field.")
@@ -162,3 +162,4 @@ def RetreiveSentences():
     #Return Response
     return resp
 
+print(void_scribe.NameGenerator.generateMarkovNames('romanEmperorForenames', 5))
