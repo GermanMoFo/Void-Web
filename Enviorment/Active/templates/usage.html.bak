@@ -24,7 +24,7 @@
       <li><i>Italicized </i>fields require input and are described below.</li>
     </ul>
     <h4>http://www.voidscribe.com/VoidScribeRequest</h4>
-    <p>This is the primary endpoint and can be formatted to get all request
+    <p>This is the primary endpoint and can be formatted for both request
       types.</p>
     <h5>JSON Structure:</h5>
     <p>{ "Req_Type":"<i>req_type</i>", "Req_Arguments":{<i> arguments </i>},
@@ -38,20 +38,20 @@
           <li><i>arguments</i>:{ "Name_Type":"<i>name_type</i>", "Amount":<i>amount</i>
             }</li>
           <ul>
-            <li><i>name_type</i>: One of the values from this list of supported
-              name types.</li>
+            <li><i>name_type</i>: One of the values from <a href="http://www.voidscribe.com/NameTypes">this
+                list of supported name types</a>.</li>
             <li><i>amount</i>: Integer value that specifies the number of names
               to generate, currently capped at 50 per request. If this field is
               not present, it is assumed to be 1.</li>
           </ul>
         </ul>
-        <li>If <i>type </i>is "Sentence"</li>
+        <li>If <i>type </i>is "Sentence" CURRENTLY UNAVAILABLE</li>
         <ul>
           <li><i>arguments</i>: { "Sentence_Type":"<i>sentence_type</i>",
             "Amount":<i>amount</i> }</li>
           <ul>
-            <li><i>sentence_type</i>: One of the values from this list of
-              supported sentence types.</li>
+            <li><i>sentence_type</i>: One of the values from <a href="http://www.voidscribe.com/SentenceTypes">this
+                list of supported sentence types</a>.</li>
             <li><i>amount</i>: Integer value that specifies the number of names
               to generate, currently capped at 10 per request. If this field is
               not present, it is assumed to be 1.</li>
@@ -68,8 +68,8 @@
     <p>{ "Name_Type":"<i>name</i>_<i>type</i>", "Amount":<i>amount</i>",
       "User_ID":<i>id</i> }</p>
     <ul>
-      <li><i>name_type</i>: One of the values from this list of supported name
-        types.</li>
+      <li><i>name_type</i>: One of the values from <a href="http://www.voidscribe.com/NameTypes">this
+          list of supported name types</a>.</li>
       <li><i>amount</i>: Integer value that specifies the number of names to
         generate, currently capped at 50 per request. If this field is not
         present, it is assumed to be 1.</li>
@@ -79,13 +79,13 @@
     </ul>
     <p></p>
     <h4>http://www.voidscribe.com/RetreiveSentences</h4>
-    <p>A convenience endpoint to simplify sentence requests.</p>
+    <p>A convenience endpoint to simplify sentence requests. CURRENTLY UNAVAILABLE</p>
     <h5>JSON Structure:</h5>
     <p>{ "Sentence_Type":"<i>sentence</i>_<i>type</i>", "Amount":<i>amount</i>,
       "User_ID":<i>id</i> }</p>
     <ul>
-      <li><i>sentence_type</i>: One of the values from this list of supported
-        sentence types.</li>
+      <li><i>sentence_type</i>: One of the values from <a href="http://www.voidscribe.com/SentenceTypes">this
+          list of supported sentence types</a>.</li>
       <li><i>amount</i>: Integer value that specifies the number of names to
         generate, currently capped at 10 per request. If this field is not
         present, it is assumed to be 1.</li>
@@ -99,3 +99,4 @@
     </p>
   </body>
 </html>
+
