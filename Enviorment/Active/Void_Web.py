@@ -104,7 +104,7 @@ def RetreiveNames():
     if "Name_Type" not in data.keys():
         Void_Log_Debug("Name request did not include required Name_Type field.")
         return Response(json.dumps({"Message":"Missing Required Argument For Name Request: Name_Type"}), 400, mimetype='application/json')
-    if data["Name_Type"] not in list(NameGenerator.validNameTypes()):
+    if data["Name_Type"] not in list(void_scribe.NameGenerator.validNameTypes()):
         Void_Log_Debug("Request's Name_Type field was an unsupported value.")
         return Response(json.dumps({"Message":"Argument: Name_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
     if "Amount" not in data.keys():
@@ -162,4 +162,3 @@ def RetreiveSentences():
     #Return Response
     return resp
 
-print(void_scribe.NameGenerator.generateMarkovNames('romanEmperorForenames', 5))

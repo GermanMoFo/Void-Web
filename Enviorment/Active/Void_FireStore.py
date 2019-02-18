@@ -24,5 +24,3 @@ def UploadDocument(collection, document_content, document_name=None):
     doc_ref.set(document_data=document_content)
 
     Void_Log_Info(f"Uploaded Document: {doc_ref.id} to Collection: {collection.id}")
-
-print("Really though?")
