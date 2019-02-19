@@ -1,0 +1,77 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:flask.app:Exception on /GenerateNames [POST]
+Traceback (most recent call last):
+  File "c:\program files\python37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\program files\python37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\program files\python37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\program files\python37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\program files\python37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\program files\python37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Joshua\Desktop\PP5\Void-Web\Enviorment\Active\Void_Web.py", line 107, in RetreiveNames
+    if data["Name_Type"] not in list(NameGenerator.validNameTypes()):
+NameError: name 'NameGenerator' is not defined
+INFO:werkzeug:127.0.0.1 - - [18/Feb/2019 11:24:45] "POST /GenerateNames HTTP/1.1" 500 -
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 451-431-035
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 451-431-035
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'C:\\Users\\Joshua\\Desktop\\PP5\\Void-Web\\Enviorment\\Active\\Void_Web.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 451-431-035
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [18/Feb/2019 11:28:07] "POST /GenerateNames HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Joshua\\Desktop\\PP5\\Void-Web\\Enviorment\\Active\\Void_Web.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 451-431-035
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG:root:2019-02-18 11:28:56.131294 - Request's Name_Type field was an unsupported value.
+INFO:werkzeug:127.0.0.1 - - [18/Feb/2019 11:28:56] "POST /GenerateNames HTTP/1.1" 400 -
+DEBUG:root:2019-02-18 11:29:11.804550 - Received a request with an unspecified source. Marking as: Web_API.
+INFO:root:2019-02-18 11:29:11.805549 - Received request from a source outside firebase, fabricating request document.
+DEBUG:google.auth.transport.requests:Making request: POST https://oauth2.googleapis.com/token
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+INFO:root:2019-02-18 11:29:12.471704 - Uploaded Document: 8lzM8gzAAL5X5eJG34zh to Collection: Algorithm_Requests
+INFO:root:2019-02-18 11:29:12.482708 - Generated 5 pokemon Names For Request
+INFO:werkzeug:127.0.0.1 - - [18/Feb/2019 11:29:12] "POST /GenerateNames HTTP/1.1" 500 -
+DEBUG:root:2019-02-18 11:30:03.247672 - Received a request with an unspecified source. Marking as: Web_API.
+INFO:root:2019-02-18 11:30:03.248672 - Received request from a source outside firebase, fabricating request document.
+INFO:root:2019-02-18 11:30:03.458719 - Uploaded Document: FYvCb5XChaJGpmlgB1Cp to Collection: Algorithm_Requests
+INFO:werkzeug:127.0.0.1 - - [18/Feb/2019 11:30:03] "POST /GenerateNames HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in 'c:\\program files\\python37\\lib\\site-packages\\void_scribe\\__init__.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 451-431-035
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 451-431-035
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG:root:2019-02-18 11:32:35.341184 - Received a request with an unspecified source. Marking as: Web_API.
+INFO:root:2019-02-18 11:32:35.342202 - Received request from a source outside firebase, fabricating request document.
+DEBUG:google.auth.transport.requests:Making request: POST https://oauth2.googleapis.com/token
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+INFO:root:2019-02-18 11:32:35.981742 - Uploaded Document: SBA3al6EmhYtnx6qlnl2 to Collection: Algorithm_Requests
+INFO:root:2019-02-18 11:32:35.982743 - Generated 5 pokemon Names For Request
+INFO:root:2019-02-18 11:32:36.194822 - Uploaded Document: Nfetpv55ROWqJbxx2CI1 to Collection: Completed_Requests
+INFO:root:2019-02-18 11:32:36.386192 - Uploaded Document: j6r5KCRhgWSZtbDhnTv2 to Collection: Generated_Names
+INFO:root:2019-02-18 11:32:36.386192 - Sucessfully processed request sending response to 127.0.0.1.
+INFO:werkzeug:127.0.0.1 - - [18/Feb/2019 11:32:36] "POST /GenerateNames HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Joshua\\Desktop\\PP5\\Void-Web\\Enviorment\\Active\\Void_FireStore.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 451-431-035
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)

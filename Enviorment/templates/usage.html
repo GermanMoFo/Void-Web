@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>usage</title>
+  </head>
+  <body>
+    <h2>API Usage</h2>
+    <h3>General Usage Notes:</h3>
+    <p>All Void Scribe API web requests are handled by POST (other message types
+      are not allowed) requests that send a packaged JSON data structure and are
+      responded to with the processed request. Be cautious, JSON data <u>is</u>
+      case sensitive. If data is not sent in the following format, the request
+      will be rejected with error code 400. If the JSON structure has additional
+      data included it will be ignored.</p>
+    <p>JSON structures are illustrated through the following format:</p>
+    <ul>
+      <li>{}Curly Brackets / Braces indicate a Map/Dictionary structure.</li>
+      <li>: Colons indicate Key/Value Relationships</li>
+      <li>[] Square Brackets / Brackets indicate an Array/List structure.</li>
+      <li>, Commas separate elements in an Array/List or Key/Value pairs in a
+        dictionary.</li>
+      <li>"" Quotation Marks indicate string data</li>
+      <li><i>Italicized </i>fields require input and are described below.</li>
+    </ul>
+    <h4>http://www.voidscribe.com/VoidScribeRequest</h4>
+    <p>This is the primary endpoint and can be formatted for both request types.</p>
+    <h5>JSON Structure:</h5>
+    <p>{ "Req_Type":"<i>req_type</i>", "Req_Arguments":{<i> arguments </i>},
+      "User_ID":"<i>id</i>" }</p>
+    <ul>
+      <li><i>req_type</i>: Either "Name" or "Sentence"</li>
+      <li><i>arguments</i>: This will vary depending on selected <i>type</i>.</li>
+      <ul>
+        <li>If <i>req_type </i>is "Name"</li>
+        <ul>
+          <li><i>arguments</i>:{ "Name_Type":"<i>name_type</i>", "Amount":<i>amount</i>
+            }</li>
+          <ul>
+            <li><i>name_type</i>: One of the values from <a href="http://www.voidscribe.com/NameTypes">this
+                list of supported name types</a>.</li>
+            <li><i>amount</i>: Integer value that specifies the number of names
+              to generate, currently capped at 50 per request. If this field is
+              not present, it is assumed to be 1.</li>
+          </ul>
+        </ul>
+        <li>If <i>type </i>is "Sentence" CURRENTLY UNAVAILABLE</li>
+        <ul>
+          <li><i>arguments</i>: { "Sentence_Type":"<i>sentence_type</i>",
+            "Amount":<i>amount</i> }</li>
+          <ul>
+            <li><i>sentence_type</i>: One of the values from <a href="http://www.voidscribe.com/SentenceTypes">this
+                list of supported sentence types</a>.</li>
+            <li><i>amount</i>: Integer value that specifies the number of names
+              to generate, currently capped at 10 per request. If this field is
+              not present, it is assumed to be 1.</li>
+          </ul>
+        </ul>
+      </ul>
+      <li><i>id</i>: Meant to verify user, currently not vetted, but still
+        required. Give us a call sign or a cool message for our logs! (Any
+        string value)</li>
+    </ul>
+    <h4>http://www.voidscribe.com/RetreiveNames</h4>
+    <p>A convenience endpoint to simplify name requests.</p>
+    <h5>JSON Structure:</h5>
+    <p>{ "Name_Type":"<i>name</i>_<i>type</i>", "Amount":<i>amount</i>",
+      "User_ID":<i>id</i> }</p>
+    <ul>
+      <li><i>name_type</i>: One of the values from <a href="http://www.voidscribe.com/NameTypes">this
+          list of supported name types</a>.</li>
+      <li><i>amount</i>: Integer value that specifies the number of names to
+        generate, currently capped at 50 per request. If this field is not
+        present, it is assumed to be 1.</li>
+      <li><i>id</i>: Meant to verify user, currently not vetted, but still
+        required. Give us a call sign or a cool message for our logs! (Any
+        string value)</li>
+    </ul>
+    <p></p>
+    <h4>http://www.voidscribe.com/RetreiveSentences</h4>
+    <p>A convenience endpoint to simplify sentence requests. CURRENTLY
+      UNAVAILABLE</p>
+    <h5>JSON Structure:</h5>
+    <p>{ "Sentence_Type":"<i>sentence</i>_<i>type</i>", "Amount":<i>amount</i>,
+      "User_ID":<i>id</i> }</p>
+    <ul>
+      <li><i>sentence_type</i>: One of the values from <a href="http://www.voidscribe.com/SentenceTypes">this
+          list of supported sentence types</a>.</li>
+      <li><i>amount</i>: Integer value that specifies the number of names to
+        generate, currently capped at 10 per request. If this field is not
+        present, it is assumed to be 1.</li>
+      <li><i>id</i>: Meant to verify user, currently not vetted, but still
+        required. Give us a call sign or a cool message for our logs! (Any
+        string value)</li>
+    </ul>
+    <p><a href="http://www.voidscribe.com">Home</a></p>
+    <p></p>
+    <p><br>
+    </p>
+  </body>
+</html>
