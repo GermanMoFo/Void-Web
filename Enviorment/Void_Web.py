@@ -5,6 +5,7 @@ import Void_Main
 from Void_Logger import Void_Log_Info, Void_Log_Debug
 
 app = Flask(__name__)
+dataFilesPath = r'C:\Users\thepe_000\Desktop\PP5\Void-Web\Enviorment\data\nametypes'
 
 @app.route("/crossdomain.xml")
 def crossdomain():
@@ -161,4 +162,47 @@ def RetreiveSentences():
 
     #Return Response
     return resp
+
+@app.route("/data/names", methods = ['POST'])
+def RetreiveData():
+    import DataIndex
+    dataIndex = DataIndex.DataIndex(dataFilesPath)
+    data = request.get_json(force = True)
+
+    # Verify request structure
+    if "nameTypes" not in data.keys():
+        Void_Log_Debug("Data request did not include required nameTypes field.")
+        return Response(json.dumps({"Message":"Missing Required Argument: nameTypes"}), 400, mimetype='application/json')
+    
+    # Find which documents are requested
+    needMeta, needRaw, needDict = False, False, False
+    if "meta" in data.keys():
+        needMeta = data['meta']
+    if 'raw' in data.keys():
+        needRaw = data['raw']
+    if 'dictionary' in data.keys():
+        needDict = data['dictionary']
+
+    if not (needDict or needMeta or needRaw):
+        # No requested document
+        Void_Log_Debug("Data request did not include documents for retreival.")
+        return Response(json.dumps({"No data specified for retreival in the request. Review JSON structure at www.voidscribe.com/usage"}), 400, mimetype='application/json')
+
+    responseData = {}
+    for nameType in data['nameTypes']:
+        if nameType not in dataIndex.keys():
+            Void_Log_Debug("Data request included invalid NameType.")
+            return Response(json.dumps({f"Invalid Name Type, the Name Type {nameType} is not valid. Please review www.voidscribe.com/nametypes for a list of valid Name Types."}), 400, mimetype='application/json')
+
+        responseData[nameType] = {}
+
+        if needMeta:
+            responseData[nameType]['meta'] = dataIndex[nameType].__loadMetaData__()
+        if needDict:
+            responseData[nameType]['dictionary'] = dataIndex[nameType].MarkovDictionary
+        if needRaw:
+            responseData[nameType]['raw'] = dataIndex[nameType].RawData
+
+    Void_Log_Debug("Sucessfully structured data request.")
+    return Response(json.dumps(responseData), 200, mimetype='application/json')
 
