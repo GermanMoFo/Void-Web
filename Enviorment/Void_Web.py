@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, Response
 import json
 import void_scribe
-import Void_Main
 from Void_Logger import Void_Log_Info, Void_Log_Debug
 
 app = Flask(__name__)
-dataFilesPath = r'C:\Users\thepe_000\Desktop\PP5\Void-Web\Enviorment\data\nametypes'
+dataFilesPath = r'C:\Users\Joshua\Desktop\PP5\Void-Web\Enviorment\data\nametypes'
+
+#Web Site
 
 @app.route("/crossdomain.xml")
 def crossdomain():
@@ -27,99 +28,29 @@ def nametypes():
 def sentencetypes():
     return render_template('SentenceTypes.html')
 
-@app.route("/VoidScribeRequest", methods = ['POST'])
-def VoidScribeRequest():
-    data = request.get_json()
-
-    Void_Log_Info(f"Received request on VoidScribeRequest from: {request.remote_addr}.")
-    Void_Log_Debug(f"Request Data: {str(request.get_json())}")
-
-    #Validate Primary Fields
-    if "Req_Type" not in data.keys():
-        Void_Log_Debug("Request did not include required Req_Type field.")
-        return Response(json.dumps({"Message":"Missing Required Argument: Req_Type"}), 400, mimetype='application/json')
-    if "Req_Arguments" not in data.keys():
-        Void_Log_Debug("Request did not include required Req_Argument field.")
-        return Response(json.dumps({"Message":"Missing Required Argument: Req_Argument"}), 400, mimetype='application/json')
-    if "User_ID" not in data.keys():
-        Void_Log_Debug("Request did not include required User_ID field.")
-        return Response(json.dumps({"Message":"Missing Required Argument: User_ID"}), 400, mimetype='application/json')
-    if "Request_Source" not in data.keys():
-        Void_Log_Debug("Received a request with an unspecified source. Marking as: Web_API.")
-        data["Request_Source"] = "Web_API"
-
-    #Validate Argument Fields
-    if data["Req_Type"] == "Name":
-        if "Name_Type" not in data["Req_Arguments"].keys():
-            Void_Log_Debug("Name request did not include required Name_Type field.")
-            return Response(json.dumps({"Message":"Missing Required Argument For Name Request: Name_Type"}), 400, mimetype='application/json')
-        if data["Req_Arguments"]["Name_Type"] not in list(NameGenerator.validNameTypes()):
-            Void_Log_Debug("Request's Name_Type field was an unsupported value.")
-            return Response(json.dumps({"Message":"Argument: Name_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
-        if "Amount" not in data["Req_Arguments"].keys():
-            Void_Log_Debug("Request did not include Amount field, defaulting to: 1")
-            data["Req_Arguments"]["Amount"] = 1
-
-    elif data["Req_Type"] == "Sentence":
-        return Response(json.dumps({"Message":"Sentence generation is temporarily unavailable is will be back and stronger in about a week."}), 200, mimetype='application/json')
-        if "Sentence_Type" not in data["Req_Arguments"].keys():
-            Void_Log_Debug("Sentence request did not include required Sentence_Type field.")
-            return Response(json.dumps({"Message":"Missing Required Argument For Sentence Request: Sentence_Type"}), 400, mimetype='application/json')
-        if data["Req_Arguments"]["Sentence_Type"] not in Stories.data.keys():
-            Void_Log_Debug("Request's Sentence_Type field was an unsupported value.")
-            return Response(json.dumps({"Message":"Argument: Sentence_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
-        if "Amount" not in data["Req_Arguments"].keys():
-            Void_Log_Debug("Request did not include Amount field, defaulting to: 1")
-            data["Req_Arguments"]["Amount"] = 1
-
-    else:
-        Void_Log_Debug("Request had an invalied Req_Type field value.")
-        return Response(json.dumps({"Message":"Argument: Req_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
-
-    #Rebuild Data Package
-    alg_data = {"Req_Type":data["Req_Type"], "Req_Arguments":data["Req_Arguments"], "User_ID":data["User_ID"], "Request_Source":data["Request_Source"]}
-
-    #Hash Key is exclusive to Mobile Requests and is used for retreival purposes
-    if "Hash_Key" in data.keys():
-        alg_data["Hash_Key"] = data["Hash_Key"]
-
-    #Process Data
-    processed_data = Void_Main.ProcessRequest(alg_data)
-
-    #Package Data For Response
-    Void_Log_Info(f"Sucessfully processed request sending response to {request.remote_addr}.")
-    resp = Response(json.dumps({"Data":processed_data}), 200, mimetype='application/json')
-
-    #Send Response
-    return resp
-
+# API endpoints
 
 @app.route("/GenerateNames", methods = ['POST'])
-def RetreiveNames():
-    data = request.get_json()
+def GenerateNames():
+    data = request.get_json(force=True)
+    import LocalVoidWebDataSource
+    from void_scribe import NameGenerator
+    dataSource = LocalVoidWebDataSource.LocalVoidWebDataSource(dataFilesPath)
+    nameGenerator = NameGenerator(dataSource)
 
     #Validate
-    if "User_ID" not in data.keys():
-        Void_Log_Debug("Request did not include required User_ID field.")
-        return Response(json.dumps({"Message":"Missing Required Argument: User_ID"}), 400, mimetype='application/json')
     if "Name_Type" not in data.keys():
         Void_Log_Debug("Name request did not include required Name_Type field.")
         return Response(json.dumps({"Message":"Missing Required Argument For Name Request: Name_Type"}), 400, mimetype='application/json')
-    if data["Name_Type"] not in list(void_scribe.NameGenerator.validNameTypes()):
+    if data["Name_Type"] not in dataSource.NameTypes():
         Void_Log_Debug("Request's Name_Type field was an unsupported value.")
         return Response(json.dumps({"Message":"Argument: Name_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
     if "Amount" not in data.keys():
         Void_Log_Debug("Request did not include Amount field, defaulting to: 1")
         data["Amount"] = 1
-    if "Request_Source" not in data.keys():
-        Void_Log_Debug("Received a request with an unspecified source. Marking as: Web_API.")
-        data["Request_Source"] = "Web_API"
 
     #Process Request
-    data["Req_Type"] = "Name"
-    data["Req_Arguments"] = {"Name_Type":data["Name_Type"], "Amount":data["Amount"]}
-
-    processed_data = Void_Main.ProcessRequest(data)
+    processed_data = nameGenerator.generateNames(nameType = data['Name_Type'], amount = data["Amount"])
 
     #Package Response
     Void_Log_Info(f"Sucessfully processed request sending response to {request.remote_addr}.")
@@ -128,45 +59,61 @@ def RetreiveNames():
     #Return Response
     return resp
 
-@app.route("/GenerateSentences", methods = ['POST'])
-def RetreiveSentences():
+@app.route("/GeneratePrompts", methods = ['POST'])
+def generatePrompts():
     data = request.get_json()
-    return Response(json.dumps({"Message":"Sentence generation is temporarily unavailable is will be back and stronger in about a week."}), 200, mimetype='application/json')
-    #Validate
-    if "User_ID" not in data.keys():
-        Void_Log_Debug("Request did not include required User_ID field.")
-        return Response(json.dumps({"Message":"Missing Required Argument: User_ID"}), 400, mimetype='application/json')
-    if "Sentence_Type" not in data.keys():
-        Void_Log_Debug("Sentence request did not include required Sentence_Type field.")
-        return Response(json.dumps({"Message":"Missing Required Argument For Sentence Request: Sentence_Type"}), 400, mimetype='application/json')
-    if data["Sentence_Type"] not in Stories.data.keys():
-        Void_Log_Debug("Request's Sentence_Type field was an unsupported value.")
-        return Response(json.dumps({"Message":"Argument: Sentence_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
+
+    if "Prompt_Type" not in data.keys():
+        Void_Log_Debug("Request's Prompt_Type field was not found.")
+        return Response(json.dumps({"Message":"Argument: Prompt_Type, Is Missing."}), 400, mimetype='application/json')
     if "Amount" not in data.keys():
-        Void_Log_Debug("Request did not include Amount field, defaulting to: 1")
-        data["Amount"] = 1
-    if "Request_Source" not in data.keys():
-        Void_Log_Debug("Received a request with an unspecified source. Marking as: Web_API.")
-        data["Request_Source"] = "Web_API"
+        Void_Log_Debug("Request's Amount field was not found.")
+        return Response(json.dumps({"Message":"Argument: Amount, Is Missing"}), 400, mimetype='application/json')
 
-    #Process Request
-    data["Req_Type"] = "Sentence"
-    data["Req_Arguments"] = {"Sentence_Type":data["Sentence_Type"], "Amount":data["Amount"]}
-
-
-    processed_data = Void_Main.ProcessRequest(data)
-
-    #Package Response
-    Void_Log_Info(f"Sucessfully processed request sending response to {request.remote_addr}.")
-    resp = Response(json.dumps({"Data":processed_data}), 200, mimetype='application/json')
-
-    #Return Response
+    resp1 = {
+        "data":[
+            "This is a cool example sentence."
+            ]
+        }
+    resp2 = {
+        "data":[
+            "Hello there, General Kenobi.",
+            "Autobots, ROLL OUT"
+            ]
+        }
+    resp3 = {
+        "data":[
+            "Sombody once told me the roll was gonna roll me",
+            "I ain't the sharpest tool in the shed.",
+            "She was looking kinda dumb with her finger and her thumb in the shape of an L on her forehead",
+            "Well the years start coming and they don't stop coming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming",
+            "and they don't stop comiming"
+            ]
+        }
+    responses = [resp1, resp2, resp3]
+    from random import randint
+    resp = Response(json.dumps(responses[randint(0,2)]), 200, mimetype='application/json')
     return resp
 
 @app.route("/data/names", methods = ['POST'])
 def RetreiveData():
     import DataIndex
-    dataIndex = DataIndex.DataIndex(dataFilesPath)
+    from LocalVoidWebDataSource import LocalVoidWebDataSource
+    dataSource = LocalVoidWebDataSource(dataFilesPath)
+
     data = request.get_json(force = True)
 
     # Verify request structure
@@ -190,19 +137,29 @@ def RetreiveData():
 
     responseData = {}
     for nameType in data['nameTypes']:
-        if nameType not in dataIndex.keys():
+        if nameType not in dataSource.dataIndex.keys():
             Void_Log_Debug("Data request included invalid NameType.")
             return Response(json.dumps({f"Invalid Name Type, the Name Type {nameType} is not valid. Please review www.voidscribe.com/nametypes for a list of valid Name Types."}), 400, mimetype='application/json')
 
         responseData[nameType] = {}
 
         if needMeta:
-            responseData[nameType]['meta'] = dataIndex[nameType].__loadMetaData__()
+            responseData[nameType]['meta'] = dataSource.MetaData([nameType])[nameType]['meta']
         if needDict:
-            responseData[nameType]['dictionary'] = dataIndex[nameType].MarkovDictionary
+            responseData[nameType]['dictionary'] = dataSource.MarkovDictionary([nameType])[nameType]['dictionary']
         if needRaw:
-            responseData[nameType]['raw'] = dataIndex[nameType].RawData
+            responseData[nameType]['raw'] = dataSource.RawData([nameType])[nameType]['raw']
 
     Void_Log_Debug("Sucessfully structured data request.")
     return Response(json.dumps(responseData), 200, mimetype='application/json')
+
+@app.route("/data/names/nameTypes", methods = ['GET'])
+def NameTypes():
+    from LocalVoidWebDataSource import LocalVoidWebDataSource
+
+    dataSource = LocalVoidWebDataSource(dataFilesPath)
+    nameTypes = dataSource.NameTypes()
+
+    return Response(json.dumps(nameTypes), 200, mimetype='application/json')
+
 

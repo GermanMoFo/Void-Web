@@ -1,7 +1,7 @@
 from NameData import NameData
 import os
 
-dataDir = r'C:\Users\thepe_000\Desktop\PP5\Void-Web\Enviorment\data\nametypes'
+dataDir = r'C:\Users\Joshua\Desktop\PP5\Void-Web\Enviorment\data\nametypes'
 
 class DataIndex():
     def __init__(self, dataPath):
