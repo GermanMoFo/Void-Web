@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>SentenceTypes</title>
+  </head>
+  <body>
+    <h2>Sentence Types</h2>
+    <p>The following is a list of supported sentence types or structures that
+      can be used for the Sentence_Type argument in API requests.</p>
+  </body>
+</html>
