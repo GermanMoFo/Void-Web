@@ -59,6 +59,35 @@ def GenerateNames():
     #Return Response
     return resp
 
+@app.route("/RetreiveNames", methods = ['POST'])
+def RetreiveNames():
+    data = request.get_json(force=True)
+    import LocalVoidWebDataSource
+    from void_scribe.NameGenerator import NameGenerator
+    dataSource = LocalVoidWebDataSource.LocalVoidWebDataSource(dataFilesPath)
+    nameGenerator = NameGenerator(dataSource)
+
+    #Validate
+    if "Name_Type" not in data.keys():
+        Void_Log_Debug("Name request did not include required Name_Type field.")
+        return Response(json.dumps({"Message":"Missing Required Argument For Name Request: Name_Type"}), 400, mimetype='application/json')
+    if data["Name_Type"] not in dataSource.NameTypes():
+        Void_Log_Debug("Request's Name_Type field was an unsupported value.")
+        return Response(json.dumps({"Message":"Argument: Name_Type, Is An Unhandled Value"}), 400, mimetype='application/json')
+    if "Amount" not in data.keys():
+        Void_Log_Debug("Request did not include Amount field, defaulting to: 1")
+        data["Amount"] = 1
+
+    #Process Request
+    processed_data = nameGenerator.retreiveNames(nameType = data['Name_Type'], amount = data["Amount"])
+
+    #Package Response
+    Void_Log_Info(f"Sucessfully processed request sending response to {request.remote_addr}.")
+    resp = Response(json.dumps({"Data":processed_data}), 200, mimetype='application/json')
+
+    #Return Response
+    return resp
+    
 @app.route("/GeneratePrompts", methods = ['POST'])
 def generatePrompts():
     data = request.get_json()
