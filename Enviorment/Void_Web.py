@@ -34,7 +34,7 @@ def sentencetypes():
 def GenerateNames():
     data = request.get_json(force=True)
     import LocalVoidWebDataSource
-    from void_scribe import NameGenerator
+    from void_scribe.NameGenerator import NameGenerator
     dataSource = LocalVoidWebDataSource.LocalVoidWebDataSource(dataFilesPath)
     nameGenerator = NameGenerator(dataSource)
 

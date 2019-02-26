@@ -1,6 +1,4 @@
-from void_scribe.NameDataSource import NameDataSource
-
-class LocalVoidWebDataSource(NameDataSource):
+class LocalVoidWebDataSource():
     
     def __init__(self, dataFilesPath):
         import DataIndex
