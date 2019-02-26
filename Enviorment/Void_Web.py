@@ -5,6 +5,7 @@ from Void_Logger import Void_Log_Info, Void_Log_Debug
 
 app = Flask(__name__)
 dataFilesPath = r'C:\Users\Joshua\Desktop\PP5\Void-Web\Enviorment\data\nametypes'
+promptTemplatesPath = ''
 
 #Web Site
 
@@ -87,7 +88,7 @@ def RetreiveNames():
 
     #Return Response
     return resp
-    
+
 @app.route("/GeneratePrompts", methods = ['POST'])
 def generatePrompts():
     data = request.get_json()
@@ -138,7 +139,7 @@ def generatePrompts():
     return resp
 
 @app.route("/data/names", methods = ['POST'])
-def RetreiveData():
+def RetreiveNameData():
     import DataIndex
     from LocalVoidWebDataSource import LocalVoidWebDataSource
     dataSource = LocalVoidWebDataSource(dataFilesPath)
@@ -191,4 +192,27 @@ def NameTypes():
 
     return Response(json.dumps(nameTypes), 200, mimetype='application/json')
 
+@app.route("/data/prompts")
+def RetreivePromptData():
+    data = request.get_json(force = True)
 
+    # Verify request structure
+    if "promptType" not in data.keys():
+        Void_Log_Debug("Data request did not include required promptType field.")
+        return Response(json.dumps({"Message":"Missing Required Argument: promptType"}), 400, mimetype='application/json')
+
+    import os
+
+    promptTypes = os.listdir(promptTemplatesPath)
+    promptTypes = [pType.split('.')[0] for pType in promptTypes]
+
+    if data['promptType'] not in promptTypes:
+        Void_Log_Debug("Data request included invalid PromptType.")
+        return Response(json.dumps({"Invalid Name Type, the Name Type {} is not valid. Please review www.voidscribe.com/nametypes for a list of valid Name Types.".format(data['promptType'])}), 400, mimetype='application/json')
+
+    import json
+    filePath = promptTemplatesPath + '/' + data['promptType'] + '.json'
+    with open(filePath, 'r') as f:
+        promptTemplate = json.load(f)
+
+    return Response(json.dumps(promptTemplate), 200, mimetype='application/json')
