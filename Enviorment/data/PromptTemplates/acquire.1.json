@@ -1,0 +1,207 @@
+{
+    "componets": {
+        "b45c9054-3e6f-4a9b-979e-4763ba36b99f": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "8f3563c6-11cc-4137-a1a9-ed2726ce4a7c": {
+            "Choose": [
+                "ask",
+                "challenge",
+                "demand",
+                "request",
+                "direct",
+                "appeal",
+                "plead",
+                "petition",
+                "beg"
+            ]
+        },
+        "d47c71f1-bd5e-4ead-ab9a-b9fa0c53f9ef": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "6804f88e-70db-4eb7-a028-49364cd963f5": {
+            "Choose": [
+                "get",
+                "acquire",
+                "collect",
+                "gain"
+            ]
+        },
+        "372c941e-8d87-43c0-af95-85bf0b6391fa": {
+            "Generate": [
+                "americanDesserts",
+                "breads",
+                "britishDesserts",
+                "cakes",
+                "drinks",
+                "fish",
+                "fruit",
+                "italianFoods",
+                "meats",
+                "nutsAndSeeds",
+                "pies",
+                "sandwiches",
+                "vegetables"
+            ]
+        },
+        "590d7535-1372-4d68-bb7b-5455933a6927": {
+            "Word": "from"
+        },
+        "215c3fbc-f925-438b-b494-d69847043b70": {
+            "Generate": [
+                "americanCities",
+                "capitolCities",
+                "greekIslands",
+                "japaneseCities",
+                "italianCities",
+                "fellsInCambria",
+                "germanTowns",
+                "countries",
+                "englishTowns",
+                "placesInCumbria",
+                "supermarketsAndDiscountStores",
+                "swissCities",
+                "russianCities",
+                "chineseCities",
+                "romanPlacesNames"
+            ]
+        },
+        "3b86040d-a7a4-41a2-846a-1c73713d92ad": {
+            "Choose": [
+                "travel",
+                "drive",
+                "fly",
+                "ride",
+                "sail",
+                "trek",
+                "hike",
+                "climb",
+                "bike",
+                "go",
+                "proceed",
+                "wander",
+                "jaunt"
+            ]
+        },
+        "99d7ecf8-b410-4d42-82a7-6ad5c36f6043": {
+            "Word": "to"
+        },
+        "d7d1c67b-7206-4263-a51c-f5b90a8738a1": {
+            "Word": "and"
+        },
+        "1b09af89-3448-4d5a-8a23-b8ab29e2efdf": {
+            "Word": "return"
+        },
+        "d0ef169f-faa4-446e-a17f-27120f8c47aa": {
+            "Choose": [
+                "thank",
+                "acknowledge",
+                "praise"
+            ]
+        }
+    },
+    "clauses": [
+        {
+            "subject": [
+                "b45c9054-3e6f-4a9b-979e-4763ba36b99f"
+            ],
+            "predicate": [
+                "8f3563c6-11cc-4137-a1a9-ed2726ce4a7c"
+            ],
+            "objekt": [
+                "d47c71f1-bd5e-4ead-ab9a-b9fa0c53f9ef"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                    "99d7ecf8-b410-4d42-82a7-6ad5c36f6043",
+                    "6804f88e-70db-4eb7-a028-49364cd963f5",
+                    "372c941e-8d87-43c0-af95-85bf0b6391fa",
+                    "590d7535-1372-4d68-bb7b-5455933a6927",
+                    "215c3fbc-f925-438b-b494-d69847043b70"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "d47c71f1-bd5e-4ead-ab9a-b9fa0c53f9ef"
+            ],
+            "predicate": [
+                "3b86040d-a7a4-41a2-846a-1c73713d92ad"
+            ],
+            "objekt": [
+                "99d7ecf8-b410-4d42-82a7-6ad5c36f6043",
+                "215c3fbc-f925-438b-b494-d69847043b70"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        },
+        {
+            "subject": [
+                "d47c71f1-bd5e-4ead-ab9a-b9fa0c53f9ef"
+            ],
+            "predicate": [
+                "6804f88e-70db-4eb7-a028-49364cd963f5"
+            ],
+            "objekt": [
+                "372c941e-8d87-43c0-af95-85bf0b6391fa"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                    "590d7535-1372-4d68-bb7b-5455933a6927",
+                    "215c3fbc-f925-438b-b494-d69847043b70",
+                    "d7d1c67b-7206-4263-a51c-f5b90a8738a1",
+                    "1b09af89-3448-4d5a-8a23-b8ab29e2efdf",
+                    "99d7ecf8-b410-4d42-82a7-6ad5c36f6043",
+                    "b45c9054-3e6f-4a9b-979e-4763ba36b99f"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "b45c9054-3e6f-4a9b-979e-4763ba36b99f"
+            ],
+            "predicate": [
+                "d0ef169f-faa4-446e-a17f-27120f8c47aa"
+            ],
+            "objekt": [
+                "d47c71f1-bd5e-4ead-ab9a-b9fa0c53f9ef"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        }
+    ]
+}

@@ -1,0 +1,262 @@
+{
+    "componets": {
+        "aef1332c-2377-4fcc-a5d7-b5fea1a1961c": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "92f30fd4-d2c1-4efd-b67e-a67586a16a0d": {
+            "Choose": [
+                "must",
+                "needs to",
+                "has to",
+                "is obligated to",
+                "is required to"
+            ]
+        },
+        "5685c853-e493-4182-b04d-58fc4a3952ed": {
+            "Choose": [
+                "travel",
+                "drive",
+                "fly",
+                "ride",
+                "sail",
+                "trek",
+                "hike",
+                "climb",
+                "bike",
+                "go",
+                "proceed",
+                "wander",
+                "jaunt"
+            ]
+        },
+        "99d7ecf8-b410-4d42-82a7-6ad5c36f6043": {
+            "Word": "to"
+        },
+        "992c23fe-c0ea-4047-a761-5d2e4953a6ea": {
+            "Word": "and"
+        },
+        "3cd9505f-d3d2-459b-96e6-2e8e8b1c43dd": {
+            "Generate": [
+                "americanCities",
+                "capitolCities",
+                "greekIslands",
+                "japaneseCities",
+                "italianCities",
+                "fellsInCambria",
+                "germanTowns",
+                "countries",
+                "englishTowns",
+                "placesInCumbria",
+                "supermarketsAndDiscountStores",
+                "swissCities",
+                "russianCities",
+                "chineseCities",
+                "romanPlacesNames"
+            ]
+        },
+        "8f3563c6-11cc-4137-a1a9-ed2726ce4a7c": {
+            "Choose": [
+                "ask",
+                "challenge",
+                "demand",
+                "request",
+                "direct",
+                "appeal",
+                "plead",
+                "petition",
+                "beg"
+            ]
+        },
+        "143bd5ce-7721-42a6-8f54-167866616b18": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "02f1e86d-1333-441f-9c3c-6aa5503d0627": {
+            "Choose": [
+                "They",
+                "The group",
+                "The band",
+                "The company",
+                "The party",
+                "The troop"
+            ]
+        },
+        "5c73c7d4-b705-4282-b3d7-9d181342da14": {
+            "Choose": [
+                "stop",
+                "break",
+                "rest",
+                "station",
+                "stopover",
+                "stay"
+            ]
+        },
+        "a7afed44-1394-4c5d-aa20-e3c1204dfa35": {
+            "Word": "in"
+        },
+        "f4fb950e-c995-48a1-9728-b61cce3922d6": {
+            "Generate": [
+                "americanCities",
+                "capitolCities",
+                "greekIslands",
+                "japaneseCities",
+                "italianCities",
+                "fellsInCambria",
+                "germanTowns",
+                "countries",
+                "englishTowns",
+                "placesInCumbria",
+                "supermarketsAndDiscountStores",
+                "swissCities",
+                "russianCities",
+                "chineseCities",
+                "romanPlacesNames"
+            ]
+        },
+        "84ea8b3a-a4fd-4137-863a-72104ce0efc6" : {
+            "Word": "for"
+        },
+        "f07602f5-4a93-4878-8d92-648944d665f1" : {
+            "Word": "they"
+        },
+        "13f40d9b-a772-4937-b68a-ba9a564f1905": {
+            "Choose": [
+                "supplies",
+                "food",
+                "matierals",
+                "necessitise",
+                "rations",
+                "replinishments"
+            ]
+        },
+        "c9405d7a167e4d158ef9b30a7772443c": {
+            "Choose": [
+                "follow",
+                "accompany",
+                "attend",
+                "escort",
+                "tail"
+            ]
+        },
+        "24a071cb27354829b3146fcbdb96828e": {
+            "Word": "to"
+        },
+        "7822d568b1114108a050cf1ec573b700": {
+            "Generate": [
+                "americanCities",
+                "capitolCities",
+                "greekIslands",
+                "japaneseCities",
+                "italianCities",
+                "fellsInCambria",
+                "germanTowns",
+                "countries",
+                "englishTowns",
+                "placesInCumbria",
+                "supermarketsAndDiscountStores",
+                "swissCities",
+                "russianCities",
+                "chineseCities",
+                "romanPlacesNames"
+            ]
+        }
+    },
+    "clauses": [
+        {
+            "subject": [
+                "aef1332c-2377-4fcc-a5d7-b5fea1a1961c"
+            ],
+            "predicate": [
+                "5685c853-e493-4182-b04d-58fc4a3952ed"
+            ],
+            "objekt": [
+                "99d7ecf8-b410-4d42-82a7-6ad5c36f6043",
+                "3cd9505f-d3d2-459b-96e6-2e8e8b1c43dd"
+            ],
+            "features": {
+                "TENSE": "FUTURE"
+            }
+        },
+        {
+            "subject": [
+                "aef1332c-2377-4fcc-a5d7-b5fea1a1961c"
+            ],
+            "predicate": [
+                "8f3563c6-11cc-4137-a1a9-ed2726ce4a7c"
+            ],
+            "objekt": [
+                "143bd5ce-7721-42a6-8f54-167866616b18"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                    "99d7ecf8-b410-4d42-82a7-6ad5c36f6043",
+                    "c9405d7a167e4d158ef9b30a7772443c"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "02f1e86d-1333-441f-9c3c-6aa5503d0627"
+            ],
+            "predicate": [
+                "5c73c7d4-b705-4282-b3d7-9d181342da14"
+            ],
+            "objekt": [
+                "a7afed44-1394-4c5d-aa20-e3c1204dfa35",
+                "7822d568b1114108a050cf1ec573b700"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                    "84ea8b3a-a4fd-4137-863a-72104ce0efc6",
+                    "13f40d9b-a772-4937-b68a-ba9a564f1905"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "f07602f5-4a93-4878-8d92-648944d665f1"
+            ],
+            "predicate": [
+                "5685c853-e493-4182-b04d-58fc4a3952ed"
+            ],
+            "objekt": [
+                "99d7ecf8-b410-4d42-82a7-6ad5c36f6043",
+                "3cd9505f-d3d2-459b-96e6-2e8e8b1c43dd"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        }
+    ]
+}

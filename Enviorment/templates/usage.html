@@ -8,12 +8,9 @@
   <body>
     <h2>API Usage</h2>
     <h3>General Usage Notes:</h3>
-    <p>All Void Scribe API web requests are handled by POST (other message types
-      are not allowed) requests that send a packaged JSON data structure and are
-      responded to with the processed request. Be cautious, JSON data <u>is</u>
-      case sensitive. If data is not sent in the following format, the request
-      will be rejected with error code 400. If the JSON structure has additional
-      data included it will be ignored.</p>
+    <p>Be cautious, JSON data <u>is</u> case sensitive. If data is not sent in
+      the following format, the request will be rejected with error code 400. If
+      the JSON structure has additional data included it will be ignored.</p>
     <p>JSON structures are illustrated through the following format:</p>
     <ul>
       <li>{}Curly Brackets / Braces indicate a Map/Dictionary structure.</li>
@@ -24,78 +21,95 @@
       <li>"" Quotation Marks indicate string data</li>
       <li><i>Italicized </i>fields require input and are described below.</li>
     </ul>
-    <h4>http://www.voidscribe.com/VoidScribeRequest</h4>
-    <p>This is the primary endpoint and can be formatted for both request types.</p>
+    <h4>http://www.voidscribe.com/GenerateNames </h4>
+    <p>or</p>
+    <h4>http://www.voidscribe.com/RetreiveNames </h4>
+    <p></p>
+    <p>GenerateNames: endpoint provides access to the void_scribe functionality
+      for Markov name generation.</p>
+    <p>RetreiveNames: endpoint provides randomly selected names rather than
+      generated ones.</p>
+    <p>HTTP Method: POST</p>
     <h5>JSON Structure:</h5>
-    <p>{ "Req_Type":"<i>req_type</i>", "Req_Arguments":{<i> arguments </i>},
-      "User_ID":"<i>id</i>" }</p>
-    <ul>
-      <li><i>req_type</i>: Either "Name" or "Sentence"</li>
-      <li><i>arguments</i>: This will vary depending on selected <i>type</i>.</li>
-      <ul>
-        <li>If <i>req_type </i>is "Name"</li>
-        <ul>
-          <li><i>arguments</i>:{ "Name_Type":"<i>name_type</i>", "Amount":<i>amount</i>
-            }</li>
-          <ul>
-            <li><i>name_type</i>: One of the values from <a href="http://www.voidscribe.com/NameTypes">this
-                list of supported name types</a>.</li>
-            <li><i>amount</i>: Integer value that specifies the number of names
-              to generate, currently capped at 50 per request. If this field is
-              not present, it is assumed to be 1.</li>
-          </ul>
-        </ul>
-        <li>If <i>type </i>is "Sentence" CURRENTLY UNAVAILABLE</li>
-        <ul>
-          <li><i>arguments</i>: { "Sentence_Type":"<i>sentence_type</i>",
-            "Amount":<i>amount</i> }</li>
-          <ul>
-            <li><i>sentence_type</i>: One of the values from <a href="http://www.voidscribe.com/SentenceTypes">this
-                list of supported sentence types</a>.</li>
-            <li><i>amount</i>: Integer value that specifies the number of names
-              to generate, currently capped at 10 per request. If this field is
-              not present, it is assumed to be 1.</li>
-          </ul>
-        </ul>
-      </ul>
-      <li><i>id</i>: Meant to verify user, currently not vetted, but still
-        required. Give us a call sign or a cool message for our logs! (Any
-        string value)</li>
-    </ul>
-    <h4>http://www.voidscribe.com/RetreiveNames</h4>
-    <p>A convenience endpoint to simplify name requests.</p>
-    <h5>JSON Structure:</h5>
-    <p>{ "Name_Type":"<i>name</i>_<i>type</i>", "Amount":<i>amount</i>",
-      "User_ID":<i>id</i> }</p>
+    <p>{ "Name_Type":"<i>name</i>_<i>type</i>", "Amount":<i>amount</i>" }</p>
     <ul>
       <li><i>name_type</i>: One of the values from <a href="http://www.voidscribe.com/NameTypes">this
           list of supported name types</a>.</li>
       <li><i>amount</i>: Integer value that specifies the number of names to
         generate, currently capped at 50 per request. If this field is not
         present, it is assumed to be 1.</li>
-      <li><i>id</i>: Meant to verify user, currently not vetted, but still
-        required. Give us a call sign or a cool message for our logs! (Any
-        string value)</li>
     </ul>
-    <p></p>
-    <h4>http://www.voidscribe.com/RetreiveSentences</h4>
-    <p>A convenience endpoint to simplify sentence requests. CURRENTLY
-      UNAVAILABLE</p>
+    <h4>http://www.voidscribe.com/data/names</h4>
+    <p>This endpoint provides access to the data used for Markov name
+      generation, this endpoint is used natively by the void_scribe application.
+      <br>
+    </p>
+    <p>HTTP Method: POST<br>
+    </p>
     <h5>JSON Structure:</h5>
-    <p>{ "Sentence_Type":"<i>sentence</i>_<i>type</i>", "Amount":<i>amount</i>,
-      "User_ID":<i>id</i> }</p>
+    <p>{ "nameTypes":["<i>name_types</i>"], "meta":bool, "raw":bool,
+      "dictionary":bool }</p>
     <ul>
-      <li><i>sentence_type</i>: One of the values from <a href="http://www.voidscribe.com/SentenceTypes">this
-          list of supported sentence types</a>.</li>
+      <li>nameTypes: A List of the values from <a href="http://www.voidscribe.com/NameTypes">this
+          list of supported name types</a>.</li>
+      <li><i>meta, raw, dictionary: </i>These three parameters are a way of
+        specifying what data you wish to retrieve. </li>
+      <ul>
+        <li><i>meta: </i>Meta data includes: tags, categorization, and whether
+          or not the name is proper.</li>
+        <li><i>raw: </i>Raw data includes a list of names that the Markov
+          generation is based on.</li>
+        <li><i>dictionary: </i>Dictionary data is a Markov Dictionary, a
+          specialized data structure that allows for probabilistic based Markov
+          generation, creation of these structures is processing heavy and so
+          this provides an alternative to generating these at run-time.</li>
+      </ul>
+    </ul>
+    <h4>http://www.voidscribe.com/data/names/nameTypes</h4>
+    <p>This endpoint provides a list of valid Name Types that reflect those that
+      appear on <a href="http://www.voidscribe.com/NameTypes">this list</a>. </p>
+    <p>HTTP Method: GET</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h4>http://www.voidscribe.com/GeneratePrompts</h4>
+    <p>This endpoint provides access to the void_scribe prompt generation tools.
+    </p>
+    <p>HTTP Method: POST</p>
+    <h5>JSON Structure:</h5>
+    <p>{ "Prompt_Type":"<i>prompt</i>_<i>type</i>", "Amount":<i>amount</i> }</p>
+    <ul>
+      <li><i><i>prompt</i>_type</i>: One of the values from <a href="http://www.voidscribe.com/PromptTypes">this
+          list of supported prompt types</a>.</li>
       <li><i>amount</i>: Integer value that specifies the number of names to
         generate, currently capped at 10 per request. If this field is not
         present, it is assumed to be 1.</li>
-      <li><i>id</i>: Meant to verify user, currently not vetted, but still
-        required. Give us a call sign or a cool message for our logs! (Any
-        string value)</li>
     </ul>
+    <h4>http://www.voidscribe.com/data/prompts</h4>
+    <p>This endpoint provides access to the templates needed for void_scribe to
+      generate prompts. This endpoint is used natively by void_scribe.<br>
+    </p>
+    <p>HTTP Method: POST<br>
+    </p>
+    <h5>JSON Structure:</h5>
+    <p>{ "Prompt_Type":"<i>prompt</i>_<i>type</i>" }</p>
+    <ul>
+      <li><i><i>prompt</i>_type</i>: One of the values from <a href="http://www.voidscribe.com/PromptTypes">this
+          list of supported prompt types</a>.</li>
+    </ul>
+    <h4>http://www.voidscribe.com/data/prompts/promptTypes</h4>
+    <p>This endpoint provides a list of valid Prompt Types that reflect those
+      that appear on <a href="http://www.voidscribe.com/PromptTypes">this list</a>.
+    </p>
+    <p>HTTP Method: GET</p>
+    <p></p>
+    <p></p>
     <p><a href="http://www.voidscribe.com">Home</a></p>
     <p></p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
     <p><br>
     </p>
   </body>

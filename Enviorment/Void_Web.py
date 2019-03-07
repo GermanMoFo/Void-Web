@@ -4,8 +4,8 @@ import void_scribe
 from Void_Logger import Void_Log_Info, Void_Log_Debug
 
 app = Flask(__name__)
-dataFilesPath = r'C:\Users\Joshua\Desktop\PP5\Void-Web\Enviorment\data\nametypes'
-promptTemplatesPath = ''
+dataFilesPath = r'C:\Users\thepe_000\Desktop\PP5\Void-Web\Enviorment\data\nametypes'
+promptTemplatesPath = r'C:\Users\thepe_000\Desktop\PP5\Void-Web\Enviorment\data\PromptTemplates'
 
 #Web Site
 
@@ -23,11 +23,21 @@ def usage():
 
 @app.route("/NameTypes")
 def nametypes():
-    return render_template('NameTypes.html')
+    from LocalVoidWebDataSource import LocalVoidWebDataSource
 
-@app.route("/SentenceTypes")
-def sentencetypes():
-    return render_template('SentenceTypes.html')
+    dataSource = LocalVoidWebDataSource(dataFilesPath)
+    nameTypes = dataSource.NameTypes()
+
+    return render_template('NameTypes.html', nameTypes=nameTypes)
+
+@app.route("/PromptTypes")
+def prompttypes():
+    import os
+    
+    promptTypes = os.listdir(promptTemplatesPath)
+    promptTypes = [pType.split('.')[0] for pType in promptTypes]
+    
+    return render_template('PromptTypes.html', promptTypes=promptTypes)
 
 # API endpoints
 
@@ -124,7 +134,7 @@ def generatePrompts():
             "and they don't stop comiming",
             "and they don't stop comiming",
             "and they don't stop comiming",
-            "and they don't stop comiming",
+            "and they don't d they comiming",
             "and they don't stop comiming",
             "and they don't stop comiming",
             "and they don't stop comiming",

@@ -1,0 +1,195 @@
+{
+    "componets": {
+        "1cf9395fcc2448cdac28b2916a980d0c": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "800b7b88684f478b99251521b4906347": {
+            "Choose": [
+                "give",
+                "deliver",
+                "present",
+                "provide"
+            ]
+        },
+        "0586ebe9683b41da83c1d75a9b9c845a": {
+            "Generate": [
+                "americanDesserts",
+                "breads",
+                "britishDesserts",
+                "cakes",
+                "drinks",
+                "fish",
+                "fruit",
+                "italianFoods",
+                "meats",
+                "nutsAndSeeds",
+                "pies",
+                "sandwiches",
+                "vegetables"
+            ]
+        },
+        "07e53e5f87244610947849be7561e10d": {
+            "Word": "from"
+        },
+        "a78b8ac935d2425b977089c767a770e1": {
+            "Generate": [
+                "americanCities",
+                "capitolCities",
+                "greekIslands",
+                "japaneseCities",
+                "italianCities",
+                "fellsInCambria",
+                "germanTowns",
+                "countries",
+                "englishTowns",
+                "placesInCumbria",
+                "supermarketsAndDiscountStores",
+                "swissCities",
+                "russianCities",
+                "chineseCities",
+                "romanPlacesNames"
+            ]
+        },
+        "921963fdd5da446c80fcce8cb4c4b8ed": {
+            "Word": "to"
+        },
+        "5b822c7f76f747f2bb67f64a4861490b": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "e093c52d-2071-4c49-a594-b64a8e8202a7": {
+            "Choose": [
+                "learn",
+                "determine",
+                "know",
+                "hear",
+                "see",
+                "discern",
+                "uncover",
+                "gather"
+            ]
+        },
+        "1b09af89-3448-4d5a-8a23-b8ab29e2efdf": {
+            "Word": "return"
+        },
+        "cdacc6d6-ec4d-4ffb-b673-8aaa0201e4cf": {
+            "Choose": [
+                "give",
+                "deliver",
+                "present",
+                "gift",
+                "offer",
+                "hand"
+            ]
+        },
+        "3a3d3fc4-2168-46fd-9b70-9fa764051028": {
+            "Choose": [
+                "happy",
+                "delighted",
+                "ecstatic",
+                "elated",
+                "joyous",
+                "jubilant",
+                "merry",
+                "pleased",
+                "gay",
+                "thnakful",
+                "overwhelmed",
+                "pleased",
+                "grateful",
+                "satisfied"
+            ]
+        },
+        "d0ef169f-faa4-446e-a17f-27120f8c47aa": {
+            "Choose": [
+                "thank",
+                "acknowledge",
+                "praise"
+            ]
+        },
+        "6bfa0827-eec2-4a70-81e3-619fc19c10d7": {
+            "Choose": [
+                "wants",
+                "needs",
+                "requires",
+                "craves",
+                "prefers",
+                "covets",
+                "fancies"
+            ]
+        }
+    },
+    "clauses": [
+        {
+            "subject": [
+                "1cf9395fcc2448cdac28b2916a980d0c"
+            ],
+            "predicate": [
+                "e093c52d-2071-4c49-a594-b64a8e8202a7"
+            ],
+            "objekt": [
+                "5b822c7f76f747f2bb67f64a4861490b"
+            ],
+            "features": {
+                "TENSE": "Present"
+            },
+            "complements": [
+                [
+                    "6bfa0827-eec2-4a70-81e3-619fc19c10d7"
+                    
+                ],
+                [
+                    "0586ebe9683b41da83c1d75a9b9c845a"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "1cf9395fcc2448cdac28b2916a980d0c"
+            ],
+            "predicate": [
+                "e093c52d-2071-4c49-a594-b64a8e8202a7"
+            ],
+            "objekt": [
+                "5b822c7f76f747f2bb67f64a4861490b"
+            ],
+            "features": {
+                "TENSE": "Present"
+            },
+            "complements": [
+                [
+                    "6bfa0827-eec2-4a70-81e3-619fc19c10d7"
+                    
+                ],
+                [
+                    "0586ebe9683b41da83c1d75a9b9c845a"
+                ]
+            ]
+        }
+    ]
+}
