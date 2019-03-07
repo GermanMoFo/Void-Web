@@ -1,0 +1,170 @@
+{
+    "componets": {
+        "3fef022bab16494b89ab8b86ed00616f": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "f712040c1f7f4a6e901473179d73953d": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "96be1804-a72b-4a8e-adb7-5a2fb0591da4": {
+            "Choose": [
+                "must",
+                "needs to",
+                "ought to"
+            ]
+        },
+        "540089bb-d011-42fa-8866-36025d378e21": {
+            "Choose": [
+                "find",
+                "travel to",
+                "go to",
+                "locate",
+                "uncover",
+                "unearth"
+            ]
+        },
+        "3cd9505f-d3d2-459b-96e6-2e8e8b1c43dd": {
+            "Generate": [
+                "americanCities",
+                "capitolCities",
+                "greekIslands",
+                "japaneseCities",
+                "italianCities",
+                "fellsInCambria",
+                "germanTowns",
+                "countries",
+                "englishTowns",
+                "placesInCumbria",
+                "supermarketsAndDiscountStores",
+                "swissCities",
+                "russianCities",
+                "chineseCities",
+                "romanPlacesNames"
+            ]
+        },
+        "ee6e9d96-4710-46e4-860e-af4aae6bfe9f": {
+            "Word": "is"
+        },
+        "17e5d065-3d08-4cdb-aece-920cc537f1eb": {
+            "Choose": [
+                "confused",
+                "lost",
+                "perplexed",
+                "mislead",
+                "adrift",
+                "astray"
+            ]
+        },
+        "953627df-b562-468f-b43c-1db3768880ef": {
+            "Choose": [
+                "offer",
+                "attempt"
+            ]
+        },
+        "17371d37-ad8a-4cbe-8dec-52c998a999f3": {
+            "Choose": [
+                "lead",
+                "guide",
+                "escort",
+                "navigate"
+            ]
+        },
+        "2ac34147-f9a3-4763-8bc7-3be636f0ec49": {
+            "Word": "to"
+        }
+    },
+    "clauses": [
+        {
+            "subject": [
+                "3fef022bab16494b89ab8b86ed00616f"
+            ],
+            "predicate": [
+                "96be1804-a72b-4a8e-adb7-5a2fb0591da4"
+            ],
+            "objekt": [
+                "540089bb-d011-42fa-8866-36025d378e21"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                    "3cd9505f-d3d2-459b-96e6-2e8e8b1c43dd"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "3fef022bab16494b89ab8b86ed00616f"
+            ],
+            "predicate": [
+                "ee6e9d96-4710-46e4-860e-af4aae6bfe9f"
+            ],
+            "objekt": [
+                "17e5d065-3d08-4cdb-aece-920cc537f1eb"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        },
+        {
+            "subject": [
+                "f712040c1f7f4a6e901473179d73953d"
+            ],
+            "predicate": [
+                "953627df-b562-468f-b43c-1db3768880ef"
+            ],
+            "objekt": [
+                "2ac34147-f9a3-4763-8bc7-3be636f0ec49",
+                "17371d37-ad8a-4cbe-8dec-52c998a999f3"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        },
+        {
+            "subject": [
+                "f712040c1f7f4a6e901473179d73953d"
+            ],
+            "predicate": [
+                "17371d37-ad8a-4cbe-8dec-52c998a999f3"
+            ],
+            "objekt": [
+                "3fef022bab16494b89ab8b86ed00616f"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                    "2ac34147-f9a3-4763-8bc7-3be636f0ec49",
+                    "3cd9505f-d3d2-459b-96e6-2e8e8b1c43dd"
+                ]
+            ]
+        }
+    ]
+}

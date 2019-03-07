@@ -1,0 +1,161 @@
+{
+    "componets": {
+        "a7e96d41de5047baa92d82ca2b7c3bff": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "16e96fb528874348a1400472c8da7318": {
+            "Choose": [
+                "kill",
+                "assassinate",
+                "execute",
+                "massacre",
+                "murder",
+                "slaughter",
+                "slay"
+            ]
+        },
+        "ee6e9d96-4710-46e4-860e-af4aae6bfe9f": {
+            "Word": "is"
+        },
+        "62864b3e-fbad-41e3-a325-b2d7c15e0451": {
+            "Word": "and"
+        },
+        "b217a2fc-28d9-4c41-8c84-433ba293c3e8": {
+            "Choose": [
+                "powerful",
+                "dominant",
+                "impressive",
+                "mighty",
+                "almighty",
+                "capable"
+            ]
+        },
+        "62cbb7b8-a460-4fd6-9ccc-3d90e5f3936e": {
+            "Choose": [
+                "evil",
+                "bad",
+                "destructive",
+                "hateful",
+                "heinous",
+                "malevolent",
+                "nefarious",
+                "malicious",
+                "corrupt",
+                "vile",
+                "villainous",
+                "wicked"
+            ]
+        },
+        "96be1804-a72b-4a8e-adb7-5a2fb0591da4": {
+            "Choose": [
+                "must",
+                "needs to",
+                "ought to"
+            ]
+        },
+        "bd2d23a4-04e1-4bf1-a5d2-fafe64dc7195": {
+            "Choose": [
+                "trains",
+                "prepares",
+                "rehearses",
+                "works out",
+                "improves"
+            ]
+        },
+        "86d3e3002c964be88b2232a818601d56": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        }
+    },
+    "clauses": [
+        {
+            "subject": [
+                "a7e96d41de5047baa92d82ca2b7c3bff"
+            ],
+            "predicate": [
+                "ee6e9d96-4710-46e4-860e-af4aae6bfe9f"
+            ],
+            "objekt": [
+                "b217a2fc-28d9-4c41-8c84-433ba293c3e8"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                    "62864b3e-fbad-41e3-a325-b2d7c15e0451",
+                    "62cbb7b8-a460-4fd6-9ccc-3d90e5f3936e"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "86d3e3002c964be88b2232a818601d56"
+            ],
+            "predicate": [
+                "96be1804-a72b-4a8e-adb7-5a2fb0591da4"
+            ],
+            "objekt": [
+                "16e96fb528874348a1400472c8da7318"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                    "a7e96d41de5047baa92d82ca2b7c3bff"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "86d3e3002c964be88b2232a818601d56"
+            ],
+            "predicate": [
+                "bd2d23a4-04e1-4bf1-a5d2-fafe64dc7195"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        },
+        {
+            "subject": [
+                "86d3e3002c964be88b2232a818601d56"
+            ],
+            "predicate": [
+                "16e96fb528874348a1400472c8da7318"
+            ],
+            "objekt": [
+                "a7e96d41de5047baa92d82ca2b7c3bff"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        }
+    ]
+}

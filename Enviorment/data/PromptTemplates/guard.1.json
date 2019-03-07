@@ -1,0 +1,172 @@
+{
+    "componets": {
+        "8e221f49c6c64765af281c65b6e2f1b9": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "057926d915244314b4b453432c891bc9": {
+            "Choose": [
+                "guarding",
+                "protecting",
+                "defending"
+            ]
+        },
+        "77be3df5-1862-4657-ac48-24a4de1fb00c": {
+            "Choose": [
+                "guard",
+                "protect",
+                "defend"
+            ]
+        },
+        "07e53e5f87244610947849be7561e10d": {
+            "Word": "from"
+        },
+        "e2e34181-fd49-4dab-ab97-213097075f04": {
+            "Word": "they"
+        },
+        "eb9cc6c0-386c-49c4-82df-8c4c9ed244c9": {
+            "Word": "the"
+        },
+        "ee6e9d96-4710-46e4-860e-af4aae6bfe9f": {
+            "Word": "is"
+        },
+        "d24db403fa124f86995c4c3fa792578e": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "2ccf579390324f9c82a4c870193c066b": {
+            "Choose": [
+                "adversaries",
+                "enemies",
+                "agents",
+                "bandits",
+                "criminals",
+                "foes",
+                "invaders",
+                "murderers",
+                "villans",
+                "rebels",
+                "spys",
+                "rivals"
+            ]
+        },
+        "b217a2fc-28d9-4c41-8c84-433ba293c3e8": {
+            "Choose": [
+                "weak",
+                "sickly",
+                "hurt",
+                "feeble",
+                "old",
+                "powerless",
+                "weakened",
+                "delicate",
+                "frail"
+            ]
+        },
+        "6bfa0827-eec2-4a70-81e3-619fc19c10d7": {
+            "Choose": [
+                "wants",
+                "needs",
+                "requires"
+            ]
+        },
+        "f2048529-e370-45e0-b9a7-ba7495c86505": {
+            "Choose": [
+                "fight",
+                "defeat",
+                "battle",
+                "confront",
+                "duel"
+            ]
+        }
+    },
+    "clauses": [
+        {
+            "subject": [
+                "8e221f49c6c64765af281c65b6e2f1b9"
+            ],
+            "predicate": [
+                "ee6e9d96-4710-46e4-860e-af4aae6bfe9f"
+            ],
+            "objekt": [
+                "b217a2fc-28d9-4c41-8c84-433ba293c3e8"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        },
+        {
+            "subject": [
+                "8e221f49c6c64765af281c65b6e2f1b9"
+            ],
+            "predicate": [
+                "6bfa0827-eec2-4a70-81e3-619fc19c10d7"
+            ],
+            "objekt": [
+                "057926d915244314b4b453432c891bc9"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        },
+        {
+            "subject": [
+                "d24db403fa124f86995c4c3fa792578e"
+            ],
+            "predicate": [
+                "77be3df5-1862-4657-ac48-24a4de1fb00c"
+            ],
+            "objekt": [
+                "8e221f49c6c64765af281c65b6e2f1b9"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                   "07e53e5f87244610947849be7561e10d",
+                   "2ccf579390324f9c82a4c870193c066b" 
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "e2e34181-fd49-4dab-ab97-213097075f04"
+            ],
+            "predicate": [
+                "f2048529-e370-45e0-b9a7-ba7495c86505"
+            ],
+            "objekt": [
+                "eb9cc6c0-386c-49c4-82df-8c4c9ed244c9",
+                "2ccf579390324f9c82a4c870193c066b"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        }
+    ]
+}

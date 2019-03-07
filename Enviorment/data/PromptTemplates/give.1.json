@@ -66,6 +66,15 @@
         "921963fdd5da446c80fcce8cb4c4b8ed": {
             "Word": "to"
         },
+        "e0b1d9a4-4c68-4953-a1d0-41f3f674ec3e": {
+            "Word": "and"
+        },
+        "ecf1ab2e-8931-4d9b-bdd8-478b62ac56d7": {
+            "Word": "the"
+        },
+        "a465c953-a45c-407d-9f52-41319559dd35": {
+            "Word": "is"
+        },
         "5b822c7f76f747f2bb67f64a4861490b": {
             "Generate": [
                 "americanForenames",
@@ -99,12 +108,12 @@
         },
         "cdacc6d6-ec4d-4ffb-b673-8aaa0201e4cf": {
             "Choose": [
-                "give",
-                "deliver",
-                "present",
-                "gift",
-                "offer",
-                "hand"
+                "gives",
+                "delivers",
+                "presents",
+                "gifts",
+                "offers",
+                "hands"
             ]
         },
         "3a3d3fc4-2168-46fd-9b70-9fa764051028": {
@@ -142,6 +151,31 @@
                 "covets",
                 "fancies"
             ]
+        },
+        "5685c853-e493-4182-b04d-58fc4a3952ed": {
+            "Choose": [
+                "travel",
+                "drive",
+                "fly",
+                "ride",
+                "sail",
+                "trek",
+                "hike",
+                "climb",
+                "bike",
+                "go",
+                "proceed",
+                "wander",
+                "jaunt"
+            ]
+        },
+        "6804f88e-70db-4eb7-a028-49364cd963f5": {
+            "Choose": [
+                "get",
+                "acquire",
+                "collect",
+                "gain"
+            ]
         }
     },
     "clauses": [
@@ -173,23 +207,80 @@
                 "1cf9395fcc2448cdac28b2916a980d0c"
             ],
             "predicate": [
-                "e093c52d-2071-4c49-a594-b64a8e8202a7"
+                "5685c853-e493-4182-b04d-58fc4a3952ed"
             ],
             "objekt": [
-                "5b822c7f76f747f2bb67f64a4861490b"
+                "921963fdd5da446c80fcce8cb4c4b8ed",
+                "a78b8ac935d2425b977089c767a770e1"
             ],
             "features": {
                 "TENSE": "Present"
             },
             "complements": [
                 [
-                    "6bfa0827-eec2-4a70-81e3-619fc19c10d7"
+                    "921963fdd5da446c80fcce8cb4c4b8ed",
+                    "6804f88e-70db-4eb7-a028-49364cd963f5"
                     
                 ],
                 [
                     "0586ebe9683b41da83c1d75a9b9c845a"
                 ]
             ]
+        },
+        {
+            "subject": [
+                "1cf9395fcc2448cdac28b2916a980d0c"
+            ],
+            "predicate": [
+                "1b09af89-3448-4d5a-8a23-b8ab29e2efdf"
+            ],
+            "features": {
+                "TENSE": "Present"
+            },
+            "complements": [
+                [
+                    "e0b1d9a4-4c68-4953-a1d0-41f3f674ec3e"
+                    
+                ],
+                [
+                    "cdacc6d6-ec4d-4ffb-b673-8aaa0201e4cf"
+                ],
+                [
+                    "5b822c7f76f747f2bb67f64a4861490b"
+                ],
+                [
+                    "ecf1ab2e-8931-4d9b-bdd8-478b62ac56d7",
+                    "0586ebe9683b41da83c1d75a9b9c845a"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "5b822c7f76f747f2bb67f64a4861490b"
+            ],
+            "predicate": [
+                "a465c953-a45c-407d-9f52-41319559dd35"
+            ],
+            "objekt": [
+                "3a3d3fc4-2168-46fd-9b70-9fa764051028"
+            ],
+            "features": {
+                "TENSE": "Present"
+            }
+        },
+        {
+            "subject": [
+                "5b822c7f76f747f2bb67f64a4861490b"
+            ],
+            "predicate": [
+                "d0ef169f-faa4-446e-a17f-27120f8c47aa"
+            ],
+            "objekt": [
+                "1cf9395fcc2448cdac28b2916a980d0c"
+            ],
+            "features": {
+                "TENSE": "Present"
+            }
         }
     ]
 }

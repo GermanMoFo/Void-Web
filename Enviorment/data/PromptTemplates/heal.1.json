@@ -1,0 +1,168 @@
+{
+    "componets": {
+        "57426674c1814950968bf5a5d86ee60a": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "815c2f138fb446e3966722b9deae37d9": {
+            "Choose": [
+                "alleviate",
+                "cure",
+                "mend",
+                "rehabilitate",
+                "rejuvenate",
+                "repair",
+                "restore",
+                "revive",
+                "soothe",
+                "treat"
+            ]
+        },
+        "856332d64a984309ba5e5fd259429172": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "8ed922b8-a09b-4b98-a92c-5826f1963aaa": {
+            "Word": "become"
+        },
+        "62864b3e-fbad-41e3-a325-b2d7c15e0451": {
+            "Word": "has"
+        },
+        "e4a10937-7e9f-438a-8f72-6dd0f85cab44": {
+            "Choose": [
+                "ill",
+                "afflicted",
+                "infected",
+                "hurt",
+                "broken",
+                "diseased",
+                "ailing",
+                "feverish",
+                "fevered",
+                "inflamed"
+            ]
+        },
+        "eab839f1-2e60-47df-a3a0-25da5c4fd557": {
+            "Word": "feels"
+        },
+        "f9529be4-9407-4bf9-b78e-22489b314da3": {
+            "Choose": [
+                "better",
+                "improved",
+                "mended",
+                "cured",
+                "recovered",
+                "rejuvenated",
+                "refreshed",
+                "renewed",
+                "revitalized",
+                "reinvigorated",
+                "restored"
+            ]
+        },
+        "3a3d3fc4-2168-46fd-9b70-9fa764051028": {
+            "Choose": [
+                "happy",
+                "delighted",
+                "ecstatic",
+                "elated",
+                "joyous",
+                "jubilant",
+                "merry",
+                "pleased",
+                "gay",
+                "thnakful",
+                "overwhelmed",
+                "pleased",
+                "grateful",
+                "satisfied"
+            ]
+        },
+        "ee6e9d96-4710-46e4-860e-af4aae6bfe9f": {
+            "Word": "is"
+        }
+    },
+    "clauses": [
+        {
+            "subject": [
+                "57426674c1814950968bf5a5d86ee60a"
+            ],
+            "predicate": [
+                "62864b3e-fbad-41e3-a325-b2d7c15e0451",
+                "8ed922b8-a09b-4b98-a92c-5826f1963aaa"
+            ],
+            "objekt": [
+                "e4a10937-7e9f-438a-8f72-6dd0f85cab44"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        },
+        {
+            "subject": [
+                "856332d64a984309ba5e5fd259429172"
+            ],
+            "predicate": [
+                "815c2f138fb446e3966722b9deae37d9"
+            ],
+            "objekt": [
+                "57426674c1814950968bf5a5d86ee60a"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        },
+        {
+            "subject": [
+                "57426674c1814950968bf5a5d86ee60a"
+            ],
+            "predicate": [
+                "eab839f1-2e60-47df-a3a0-25da5c4fd557"
+            ],
+            "objekt": [
+                "f9529be4-9407-4bf9-b78e-22489b314da3"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        },
+        {
+            "subject": [
+                "57426674c1814950968bf5a5d86ee60a"
+            ],
+            "predicate": [
+                "ee6e9d96-4710-46e4-860e-af4aae6bfe9f"
+            ],
+            "objekt": [
+                "3a3d3fc4-2168-46fd-9b70-9fa764051028"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        }
+    ]
+}

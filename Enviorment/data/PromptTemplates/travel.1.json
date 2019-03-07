@@ -1,0 +1,198 @@
+{
+    "componets": {
+        "3d64d94166f641c3875659e23df4cce7": {
+            "Generate": [
+                "americanForenames",
+                "dutchForenames",
+                "frenchForenames",
+                "germanForenames",
+                "icelandicForenames",
+                "indianForenames",
+                "irishForenames",
+                "italianForenames",
+                "japaneseForenames",
+                "russianForenames",
+                "spanishForenames",
+                "swedishForenames"
+            ]
+        },
+        "912a7d90937d441c86696c92dc88e384": {
+            "Choose": [
+                "travel",
+                "venture",
+                "voyage",
+                "trek"
+            ]
+        },
+        "cd7473e8-7fb8-481a-accc-2cfd0c0766d2": {
+            "Choose": [
+                "plan",
+                "arrange",
+                "plot"
+            ]
+        },
+        "5b165bcb-c402-44e2-a931-21a1eb68b3e1": {
+            "Choose": [
+                "gather",
+                "assemble",
+                "collect",
+                "buy",
+                "pack",
+                "mass"
+            ]
+        },
+        "13f40d9b-a772-4937-b68a-ba9a564f1905": {
+            "Choose": [
+                "supplies",
+                "food",
+                "matierals",
+                "necessitise",
+                "rations",
+                "replinishments"
+            ]
+        },
+        "827d1d7c-728b-407b-8472-2b375e331945": {
+            "Choose": [
+                "leaves",
+                "heads out",
+                "begins their journey"
+            ]
+        },
+        "acf2aba2-6150-4fd7-90b1-1d5ea6da5fdd": {
+            "Choose": [
+                "trip",
+                "expedition",
+                "journey"
+            ]
+        },
+        "66cecbaa-efca-4fe0-939f-4ec4a567909e": {
+            "Choose": [
+                "short",
+                "long",
+                "arduous",
+                "grueling",
+                "tough",
+                "easy",
+                "trying",
+                "effortless",
+                "smooth",
+                "uncomplicated",
+                "complicated"
+            ]
+        },
+        "22a93d26-f9b9-41c5-a061-fc6840418e34": {
+            "Choose": [
+                "arrives in",
+                "reach",
+                "enter"
+            ]
+        },
+        "9f7b8ecf96574708ae785ea3aea41abd": {
+            "Word": "to"
+        },
+        "8e287751-e6e5-414e-b482-bec87f739e1e": {
+            "Word": "and"
+        },
+        "89c8a0b1-f73e-4437-987f-a081b1e1582a": {
+            "Word": "is"
+        },
+        "8bd63c82-2471-4d89-b92e-46a5fecf8af2": {
+            "Word": "the"
+        },
+        "774b1f5f-a0e6-41d4-8039-df5dfc147f24": {
+            "Word": "in"
+        },
+        "f9612e514846469bb36b503e77bbd03e": {
+            "Generate": [
+                "americanCities",
+                "capitolCities",
+                "greekIslands",
+                "japaneseCities",
+                "italianCities",
+                "fellsInCambria",
+                "germanTowns",
+                "countries",
+                "englishTowns",
+                "placesInCumbria",
+                "supermarketsAndDiscountStores",
+                "swissCities",
+                "russianCities",
+                "chineseCities",
+                "romanPlacesNames"
+            ]
+        }
+    },
+    "clauses": [
+        {
+            "subject": [
+                "3d64d94166f641c3875659e23df4cce7"
+            ],
+            "predicate": [
+                "cd7473e8-7fb8-481a-accc-2cfd0c0766d2"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                    "9f7b8ecf96574708ae785ea3aea41abd",
+                    "912a7d90937d441c86696c92dc88e384"
+                ],
+                [
+                    "9f7b8ecf96574708ae785ea3aea41abd",
+                    "f9612e514846469bb36b503e77bbd03e"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "3d64d94166f641c3875659e23df4cce7"
+            ],
+            "predicate": [
+                "5b165bcb-c402-44e2-a931-21a1eb68b3e1"
+            ],
+            "objekt": [
+                "13f40d9b-a772-4937-b68a-ba9a564f1905"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            },
+            "complements": [
+                [
+                    "8e287751-e6e5-414e-b482-bec87f739e1e",
+                    "827d1d7c-728b-407b-8472-2b375e331945"
+                ]
+            ]
+        },
+        {
+            "subject": [
+                "8bd63c82-2471-4d89-b92e-46a5fecf8af2",
+                "acf2aba2-6150-4fd7-90b1-1d5ea6da5fdd"
+            ],
+            "predicate": [
+                "89c8a0b1-f73e-4437-987f-a081b1e1582a"
+            ],
+            "objekt": [
+                "66cecbaa-efca-4fe0-939f-4ec4a567909e"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        },
+        {
+            "subject": [
+                "3d64d94166f641c3875659e23df4cce7"
+            ],
+            "predicate": [
+                "22a93d26-f9b9-41c5-a061-fc6840418e34"
+            ],
+            "objekt": [
+                "774b1f5f-a0e6-41d4-8039-df5dfc147f24",
+                "f9612e514846469bb36b503e77bbd03e"
+            ],
+            "features": {
+                "TENSE": "PRESENT"
+            }
+        }
+    ]
+}
