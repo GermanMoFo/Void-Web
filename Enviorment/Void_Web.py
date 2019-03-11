@@ -39,6 +39,20 @@ def prompttypes():
     
     return render_template('PromptTypes.html', promptTypes=promptTypes)
 
+@app.route("/TryIt")
+def tryIt():
+    from LocalVoidWebDataSource import LocalVoidWebDataSource
+    import os
+
+    # Get name types
+    dataSource = LocalVoidWebDataSource(dataFilesPath)
+    nameTypes = dataSource.NameTypes()
+    # Get prompt types
+    promptTypes = os.listdir(promptTemplatesPath)
+    promptTypes = [pType.split('.')[0] for pType in promptTypes]
+
+    return render_template('TryIt.html', nameTypes=nameTypes, promptTypes=promptTypes)
+
 # API endpoints
 
 @app.route("/GenerateNames", methods = ['POST'])
