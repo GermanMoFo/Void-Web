@@ -1,12 +1,14 @@
 from flask import Flask, render_template, request, Response
 import json
 import void_scribe
+import os
 from Void_Logger import Void_Log_Info, Void_Log_Debug
 
 app = Flask(__name__)
-dataFilesPath = r'C:\Users\thepe_000\Desktop\PP5\Void-Web\Enviorment\data\nametypes'
-promptTemplatesPath = r'C:\Users\thepe_000\Desktop\PP5\Void-Web\Enviorment\data\PromptTemplates'
-
+pathNameTypes = "Enviorment/data/nametypes"
+pathPromptTypes = "Enviorment/data/PromptTemplates"
+dataFilesPath = os.path.abspath(pathNameTypes)
+promptTemplatesPath = os.path.abspath(pathPromptTypes)
 #Web Site
 
 @app.route("/crossdomain.xml")
@@ -31,9 +33,7 @@ def nametypes():
     return render_template('NameTypes.html', nameTypes=nameTypes)
 
 @app.route("/PromptTypes")
-def prompttypes():
-    import os
-    
+def prompttypes():    
     promptTypes = os.listdir(promptTemplatesPath)
     promptTypes = [pType.split('.')[0] for pType in promptTypes]
     
@@ -42,7 +42,6 @@ def prompttypes():
 @app.route("/TryIt")
 def tryIt():
     from LocalVoidWebDataSource import LocalVoidWebDataSource
-    import os
 
     # Get name types
     dataSource = LocalVoidWebDataSource(dataFilesPath)
@@ -137,24 +136,24 @@ def generatePrompts():
         }
     resp3 = {
         "data":[
-            "Sombody once told me the roll was gonna roll me",
+            "Somebody once told me the world was gonna roll me",
             "I ain't the sharpest tool in the shed.",
             "She was looking kinda dumb with her finger and her thumb in the shape of an L on her forehead",
             "Well the years start coming and they don't stop coming",
-            "and they don't stop comiming",
-            "and they don't stop comiming",
-            "and they don't stop comiming",
-            "and they don't stop comiming",
-            "and they don't stop comiming",
-            "and they don't stop comiming",
-            "and they don't stop comiming",
-            "and they don't d they comiming",
-            "and they don't stop comiming",
-            "and they don't stop comiming",
-            "and they don't stop comiming",
-            "and they don't stop comiming",
-            "and they don't stop comiming",
-            "and they don't stop comiming"
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming",
+            "and they don't stop coming"
             ]
         }
     responses = [resp1, resp2, resp3]
@@ -224,8 +223,6 @@ def RetreivePromptData():
     if "promptType" not in data.keys():
         Void_Log_Debug("Data request did not include required promptType field.")
         return Response(json.dumps({"Message":"Missing Required Argument: promptType"}), 400, mimetype='application/json')
-
-    import os
 
     promptTypes = os.listdir(promptTemplatesPath)
     promptTypes = [pType.split('.')[0] for pType in promptTypes]
