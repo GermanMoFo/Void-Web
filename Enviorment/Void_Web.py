@@ -39,7 +39,7 @@ def prompttypes():
     
     return render_template('PromptTypes.html', promptTypes=promptTypes)
 
-@app.route("/TryIt")
+@app.route("/TryIt", methods=['GET', 'POST'])
 def tryIt():
     from LocalVoidWebDataSource import LocalVoidWebDataSource
 
